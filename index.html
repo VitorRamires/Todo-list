@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+  
+<main>
+
+  <section class="todo-info-input">
+    <div class="status-tarefa">
+      <h4>Em andamento</h4>
+    </div>
+    <div class="input-tarefa">
+      <label for="tarefa"></label>
+      <input type="text" name="tarefa" id="tarefa" placeholder="Digite sua tarefa!">
+      <button class="adicionar"><img src="./icons/plus.svg"></button>
+    </div>
+  </section>
+  <section class="lista-tarefas-box">
+    <div class="filtros">
+      <p>Filtros</p>
+      <ul>
+        <li>todos</li>
+        <li>Feitos</li>
+        <li>Andamento</li>
+        <li>A iniciar</li>
+      </ul>
+    </div>
+    <div class="painel-tarefas">
+      <div class="tarefas-ativas">
+        <div class="item-lista">
+          <div class="item-info">
+          <h3 id="status">Status</h3>
+          <input type="text" value="Esta é minha tarefa" id="descricao-tarefa">
+          </div>
+          <div class="botoes">
+            <div class="botao marcar">
+              <img src="icons/check.svg">
+            </div>
+            <div class="botao atualizar">
+              <img src="icons/pencil-square.svg">
+            </div>
+            <div class="botao deletar">
+              <img src="icons/x.svg">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="completas">
+        <div class="item-lista verificado exemplo">
+          <div class="item-info">
+          <h3 id="status">Status</h3>
+          <input type="text" value="Esta é minha tarefa" id="descricao-tarefa">
+          </div>
+          <div class="botoes">
+            <div class="botao deletar">
+              <img src="icons/x.svg">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="limpar">LIMPAR TAREFAS</button>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
