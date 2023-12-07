@@ -60,57 +60,6 @@ padding: 10px;
 }
 
 
-.item-lista{
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 8px 0 8px;
-}
-
-.item-lista:first-child{
-  display: none;
-}
-
-
-.item-info{
-  padding: 20px 0;
-}
-
-.item-info input{
-  width: 300px;
-  outline: none;
-  border: none;
-  background-color: transparent;
-}
-
-.item-lista #descricao-tarefa{
-  word-break: break-word;
-  padding-right: 50px;
-}
-
-.item-lista:nth-child(odd){
-  background-color: #E1F7FC;
-}
-.item-lista:nth-child(even){
-  background-color: #ffffff;
-}
-
-.botoes{
-  display: flex;
-  gap: 10px;
-}
-
-.botao{
-  background-color:  red;
-  padding:10px;
-}
-
-.verificado{
-  background-color: #44D185 !important;
-  border-bottom: 1px solid #ffffff;
-}
-
 .limpar{
   width: 100%;
   height: 60px;
@@ -121,6 +70,28 @@ padding: 10px;
 }
 
 
-.exemplo{
-  display: none;
+.item-lista{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.botoes{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-lista{
+  padding:20px;
+  background-color: red;
+  border-bottom: 1px solid #ffffff;
+}
+
+#descricao-tarefa{
+  background-color:red;
+  outline: none;
+  border: none;
+  color:#ffffff
 }
