@@ -69,29 +69,3 @@ padding: 10px;
   color:#ffffff;
 }
 
-
-.item-lista{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-
-.botoes{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.item-lista{
-  padding:20px;
-  background-color: red;
-  border-bottom: 1px solid #ffffff;
-}
-
-#descricao-tarefa{
-  background-color:red;
-  outline: none;
-  border: none;
-  color:#ffffff
-}
