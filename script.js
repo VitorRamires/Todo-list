@@ -1,21 +1,28 @@
 
 const tarefasAtivas = document.querySelector('.tarefas-ativas')
-const addTarefa = document.querySelector('.adicionar')
+const botaoAddTarefa = document.querySelector('.adicionar')
+const inputAddTarefa = document.querySelector('#addTarefa')
 
 function adicionandoTarefa(){
-  const tarefa = document.createElement('p')
-  tarefa.innerHTML = document.querySelector('#addTarefa').value
-  tarefasAtivas.appendChild(tarefa)
+  if(inputAddTarefa.value === ""){
+    alert('Preencha o campo')
+  } else {
+    let tarefa = document.createElement('p')
+    tarefa.innerText = inputAddTarefa.value
+    tarefasAtivas.appendChild(tarefa)
 
-  const removerTarefa = document.createElement('a')
-  removerTarefa.innerHTML = ' remover '
-  tarefa.appendChild(removerTarefa)
-  removerTarefa.onclick = ()=>{
-    tarefasAtivas.removeChild(tarefa)
+    const removerTarefa = document.createElement('a')
+    removerTarefa.innerText = '    remover    '
+    tarefa.appendChild(removerTarefa)
+    removerTarefa.onclick = ()=>{
+      tarefasAtivas.removeChild(tarefa)
+    }
   }
-
-  const editarTarefa = document.crea
 }
 
-
-addTarefa.addEventListener('click', adicionandoTarefa)
+  botaoAddTarefa.addEventListener('click', adicionandoTarefa)
+  inputAddTarefa.addEventListener('keydown', (event)=>{
+    if(event.key === "Enter"){
+      adicionandoTarefa()
+    }
+  })
