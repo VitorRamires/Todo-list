@@ -1,5 +1,6 @@
 
-const tarefasAtivas = document.querySelector('.tarefas-ativas'),
+const painelTarefas = document.querySelector('.painel-tarefas'),
+      tarefasAtivas = document.querySelector('.tarefas-ativas'),
       tarefasCompletas = document.querySelector('.tarefas-completas')
       botaoAddTarefa = document.querySelector('.adicionar'),
       inputAddTarefa = document.querySelector('#addTarefa')
@@ -23,12 +24,6 @@ function adicionandoTarefa(){
     botoes.classList.add('botoes')
     tarefa.appendChild(botoes)
 
-    const removerTarefa = document.createElement('a')
-    botoes.appendChild(removerTarefa)
-    removerTarefa.classList.add('botao-remover')
-    removerTarefa.onclick = ()=>{
-      tarefasAtivas.removeChild(tarefa)
-    }
 
     const divCompletarTarefa = document.createElement('div'),
           completarTarefa = document.createElement('input'),
@@ -48,17 +43,25 @@ function adicionandoTarefa(){
         tarefa.classList.add('completa')
         descricaoTarefa.setAttribute('disabled', true)
         tarefasCompletas.appendChild(tarefa)
-        
       } else {
         tarefa.classList.remove('completa')
         descricaoTarefa.removeAttribute('disabled')
+        tarefasAtivas.appendChild(tarefa)
       }
     }
-    
-    botaoLimpar.addEventListener('click', ()=>{
-      tarefasAtivas.removeChild(tarefa)
-      tarefasCompletas.removeChild(tarefa)
-    })
+
+    const removerTarefa = document.createElement('a')
+    botoes.appendChild(removerTarefa)
+    removerTarefa.classList.add('botao-remover')
+    removerTarefa.onclick = ()=>{
+      if(tarefa.classList.contains('completa')){
+        tarefasCompletas.removeChild(tarefa)
+      } else {
+        tarefasAtivas.removeChild(tarefa)
+      }
+    }
+
+
   }
 }
 
