@@ -4,59 +4,165 @@
   margin: 0;
 }
 
-main{
-  width: 900px;
-  max-width: 100%;
-  margin:0 auto;
-  padding:30px;
-  background-color: rgb(7, 65, 99);
+
+body{
+  background-color: #C3F4FF;
 }
 
-.status-tarefa{
-  background-color: #FFDB5A;
-  padding:10px 0;
-  text-align: center;
+main{
+  position: relative;
+  width: 900px;
+  max-width: 100%;
+  margin:100px auto  0 auto;
+}
+
+.todo-info-input{
+  position: relative;
+  width: 100%;
+  height: 80px;
+  z-index: 3;
 }
 
 .input-tarefa{
   display: flex;
+  height: 100%;
+  width: 90%;
+  margin:0 auto;
 }
 
 .input-tarefa [type=text]{
-width: 80%;
-height: 60px;
-padding: 10px;
+  width: 100%;
+  padding: 10px 5px 10px 25px;
+  border-radius: 15px 0 0 15px;
+  border: none;
+  outline: none;
 }
+
 
 .input-tarefa .adicionar{
   width: 20%;
   background-color: #26B1FF;
   outline: 0;
   border: 0;
+  cursor: pointer;
+  border-radius: 0 15px 15px 0;
+}
+
+
+.lista-body{
+  position: relative;
+  width: 100%;
+  padding:30px 60px;
+  background:linear-gradient(180deg,#4ADEFF, #C3F4FF);
+  box-shadow: 0 -30px 0 0 #4ADEFF;
+  z-index: 2;
+  border-radius: 15px;
 }
 
 .lista-tarefas-box{
   padding-top:30px;
 }
 
-.filtros{
-  width: 100%;
-  border-bottom: 1px solid red;
-  margin-bottom:20px;
-}
-
-.filtros, ul{
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 20px;
-  list-style-type: none;
-  font-size: 1.1rem;
-}
-
 .painel-tarefas{
   display: flex;
   flex-direction: column-reverse;
   justify-content: center;
+}
+
+.tarefa{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:10px 15px;
+}
+
+.tarefa:nth-child(odd){
+  background-color: #E1F7FC;
+}
+.tarefa:nth-child(even){
+  background-color: #C5F0FA;
+}
+
+.descricao-tarefa{
+  position: relative;
+  width: 100%;
+  background-color: transparent;
+  color:#1a1a1a;
+  outline: none;
+  border: none;
+  word-break: break-all;
+}
+
+.botoes{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.botao-remover{
+  position: relative;
+  background-color: #CF0000;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.botao-remover::after{
+  content: "";
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%) rotate(40deg);
+  z-index: 1;
+}
+.botao-remover::before{
+  content: "";
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%) rotate(-40deg);
+  z-index: 1;
+}
+
+.completar-box{
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+
+[type=checkbox]{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.botao-completar{
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  background-color: #44D185;
+  background-image: url(/icons/check.svg);
+  background-position: center;
+  background-size: cover;
+}
+
+
+.completa{
+  background-color: #a6f5cb !important;
+  color:rgb(53, 53, 53) !important;
+  border-bottom:1px solid #ffffff;
 }
 
 
@@ -68,4 +174,3 @@ padding: 10px;
   outline: none;
   color:#ffffff;
 }
-

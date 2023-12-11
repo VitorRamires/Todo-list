@@ -9,33 +9,22 @@
 <body>
   
 <main>
-
   <section class="todo-info-input">
-    <div class="status-tarefa">
-      <h4>Em andamento</h4>
-    </div>
     <div class="input-tarefa">
       <label for="tarefa"></label>
       <input type="text" name="tarefa" id="addTarefa" placeholder="Digite sua tarefa!">
       <button class="adicionar"><img src="./icons/plus.svg"></button>
     </div>
   </section>
-  <section class="lista-tarefas-box">
-    <div class="filtros">
-      <p>Filtros</p>
-      <ul>
-        <li>todos</li>
-        <li>Feitos</li>
-        <li>Andamento</li>
-        <li>A iniciar</li>
-      </ul>
-    </div>
-    <div class="painel-tarefas">
-      <div class="tarefas-ativas"></div>
-      <div class="completas"></div>
-    </div>
-    <button class="limpar">LIMPAR TAREFAS</button>
-  </section>
+  <div class="lista-body">
+    <section class="lista-tarefas-box">
+      <div class="painel-tarefas">
+        <div class="tarefas-completas"></div>
+        <div class="tarefas-ativas"></div>
+      </div>
+      <button class="limpar">LIMPAR TAREFAS</button>
+    </section>
+  </div>
 </main>
 
 <script src="script.js"></script>
