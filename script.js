@@ -3,22 +3,21 @@ const painelTarefas = document.querySelector('.painel-tarefas'),
       tarefasAtivas = document.querySelector('.tarefas-ativas'),
       tarefasCompletas = document.querySelector('.tarefas-completas')
       botaoAddTarefa = document.querySelector('.adicionar'),
-      inputAddTarefa = document.querySelector('#addTarefa')
-      botaoLimpar = document.querySelector('.limpar'),
-      mostrarCaracteres = document.querySelector(".caracter-count p")
+      inputAddTarefa = document.querySelector('#addTarefa'),
+      botaoLimpar = document.querySelector('.limpar')
+      
 
 
 function adicionandoTarefa(){
-  if(inputAddTarefa.value === "" || inputAddTarefa.value.length > 32){
-    alert('Preencha o campo ou diminua a quantidade de carcteres')
-    mostrarCaracteres.innerHTML = 0
+  if(inputAddTarefa.value === ""){
+    alert('Preencha o campo corretamente')
   } else {
     let tarefa = document.createElement('div'),
-        descricaoTarefa = document.createElement('input')
+        descricaoTarefa = document.createElement('p')
     
     tarefasAtivas.appendChild(tarefa)
     tarefa.appendChild(descricaoTarefa)
-    descricaoTarefa.value = inputAddTarefa.value
+    descricaoTarefa.innerText = inputAddTarefa.value
    
     tarefa.classList.add('tarefa')
     descricaoTarefa.classList.add('descricao-tarefa')
@@ -75,9 +74,6 @@ function adicionandoTarefa(){
         }
       })
     }
-    
-    mostrarCaracteres.innerHTML = 0
-
   }
 
 }
@@ -90,7 +86,6 @@ botaoAddTarefa.addEventListener('click', ()=>{
 
 })
 inputAddTarefa.addEventListener('keydown', (event)=>{
-  mostrarCaracteres.innerHTML = inputAddTarefa.value.length
   if(event.key === "Enter"){
     adicionandoTarefa()
     inputAddTarefa.value = ''
