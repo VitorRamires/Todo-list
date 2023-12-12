@@ -49,6 +49,8 @@ function adicionandoTarefa(){
         tarefasAtivas.appendChild(tarefa)
       }
     }
+    
+
 
     const removerTarefa = document.createElement('a')
     botoes.appendChild(removerTarefa)
@@ -61,13 +63,29 @@ function adicionandoTarefa(){
       }
     }
 
+    botaoLimpar.onclick = ()=>{
+      let todasTarefas = document.querySelectorAll('.tarefa')
+      todasTarefas.forEach(tarefaItem=>{
+        if(tarefaItem.classList.contains('completa')){
+          tarefasCompletas.removeChild(tarefaItem)
+        } else {
+          tarefasAtivas.removeChild(tarefaItem)
+        }
+      })
+    }
 
   }
 }
 
-  botaoAddTarefa.addEventListener('click', adicionandoTarefa)
-  inputAddTarefa.addEventListener('keydown', (event)=>{
-    if(event.key === "Enter"){
-      adicionandoTarefa()
-    }
-  })
+
+
+botaoAddTarefa.addEventListener('click', ()=>{
+  adicionandoTarefa()
+  inputAddTarefa.value = ''
+})
+inputAddTarefa.addEventListener('keydown', (event)=>{
+  if(event.key === "Enter"){
+    adicionandoTarefa()
+    inputAddTarefa.value = ''
+  }
+})
