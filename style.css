@@ -88,7 +88,26 @@ main{
   border: 0;
   cursor: pointer;
   border-radius: 0 15px 15px 0;
+
 }
+
+.adicionar img:hover{
+  transform: scale(1.2);
+  transition: 0.2s;
+}
+.adicionar img{
+  transform: scale(1);
+  transition: 0.2s;
+}
+#addTarefa{
+  border-left:10px solid transparent;
+  transition: 0.2s;
+}
+#addTarefa:focus{
+  border-left:10px solid #26B1FF;
+  transition: 0.2s;
+}
+
 
 
 .lista-body{
@@ -149,6 +168,13 @@ main{
   width: 50px;
   height: 50px;
   cursor: pointer;
+  transform: scale(1);
+  transition: 0.2s;
+}
+
+.botao-remover:hover{
+  transform: scale(1.1);
+  transition: 0.2s;
 }
 
 .botao-remover::after{
@@ -178,6 +204,13 @@ main{
   position: relative;
   width: 50px;
   height: 50px;
+  transform: scale(1);
+  transition: 0.2s;
+}
+
+.completar-box:hover{
+  transform: scale(1.1);
+  transition: 0.2s;
 }
 
 [type=checkbox]{
@@ -221,4 +254,21 @@ main{
   cursor: pointer;
   font-family: 'openSans-bold';
   font-size: 1.3rem;
+}
+
+
+.entrada-animada{
+  opacity: 1;
+  animation: entradaAnimada 0.3s ease-in-out;
+}
+
+@keyframes entradaAnimada {
+  from{
+    opacity: 0;
+    transform: translateX(-7%);
+  }
+  to{
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

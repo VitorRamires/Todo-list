@@ -1,4 +1,3 @@
-
 const painelTarefas = document.querySelector('.painel-tarefas'),
       tarefasAtivas = document.querySelector('.tarefas-ativas'),
       tarefasCompletas = document.querySelector('.tarefas-completas')
@@ -19,7 +18,7 @@ function adicionandoTarefa(){
     tarefa.appendChild(descricaoTarefa)
     descricaoTarefa.innerText = inputAddTarefa.value
    
-    tarefa.classList.add('tarefa')
+    tarefa.classList.add('tarefa', 'entrada-animada')
     descricaoTarefa.classList.add('descricao-tarefa')
 
     let botoes = document.createElement('div')
@@ -74,8 +73,8 @@ function adicionandoTarefa(){
         }
       })
     }
-  }
 
+  }
 }
 
 
