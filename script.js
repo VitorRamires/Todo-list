@@ -4,11 +4,14 @@ const painelTarefas = document.querySelector('.painel-tarefas'),
       tarefasCompletas = document.querySelector('.tarefas-completas')
       botaoAddTarefa = document.querySelector('.adicionar'),
       inputAddTarefa = document.querySelector('#addTarefa')
-      botaoLimpar = document.querySelector('.limpar')
+      botaoLimpar = document.querySelector('.limpar'),
+      mostrarCaracteres = document.querySelector(".caracter-count p")
+
 
 function adicionandoTarefa(){
-  if(inputAddTarefa.value === ""){
-    alert('Preencha o campo')
+  if(inputAddTarefa.value === "" || inputAddTarefa.value.length > 32){
+    alert('Preencha o campo ou diminua a quantidade de carcteres')
+    mostrarCaracteres.innerHTML = 0
   } else {
     let tarefa = document.createElement('div'),
         descricaoTarefa = document.createElement('input')
@@ -51,7 +54,6 @@ function adicionandoTarefa(){
     }
     
 
-
     const removerTarefa = document.createElement('a')
     botoes.appendChild(removerTarefa)
     removerTarefa.classList.add('botao-remover')
@@ -63,8 +65,8 @@ function adicionandoTarefa(){
       }
     }
 
+    let todasTarefas = document.querySelectorAll('.tarefa')
     botaoLimpar.onclick = ()=>{
-      let todasTarefas = document.querySelectorAll('.tarefa')
       todasTarefas.forEach(tarefaItem=>{
         if(tarefaItem.classList.contains('completa')){
           tarefasCompletas.removeChild(tarefaItem)
@@ -73,8 +75,11 @@ function adicionandoTarefa(){
         }
       })
     }
+    
+    mostrarCaracteres.innerHTML = 0
 
   }
+
 }
 
 
@@ -82,8 +87,10 @@ function adicionandoTarefa(){
 botaoAddTarefa.addEventListener('click', ()=>{
   adicionandoTarefa()
   inputAddTarefa.value = ''
+
 })
 inputAddTarefa.addEventListener('keydown', (event)=>{
+  mostrarCaracteres.innerHTML = inputAddTarefa.value.length
   if(event.key === "Enter"){
     adicionandoTarefa()
     inputAddTarefa.value = ''
