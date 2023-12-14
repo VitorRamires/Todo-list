@@ -109,6 +109,7 @@ function adicionandoTarefa(){
         descricaoTarefa.value = valorInputSalvo
         verificarRemover.classList.remove('esconder-botoes')
         salvarCancelar.classList.add('esconder-botoes')
+        descricaoTarefa.disabled = true
       })
     }
 
