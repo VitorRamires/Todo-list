@@ -164,12 +164,14 @@ main{
 
 .botao-remover{
   position: relative;
+  display: block;
   background-color: #CF0000;
   width: 50px;
   height: 50px;
   cursor: pointer;
   transform: scale(1);
   transition: 0.2s;
+  border-radius: 5px;
 }
 
 .botao-remover:hover{
@@ -232,10 +234,11 @@ main{
   background-image: url(/icons/check.svg);
   background-position: center;
   background-size: cover;
+  border-radius: 5px;
 }
 
 
-.completa{
+.completar{
   background-color: #a6f5cb !important;
   color:rgb(53, 53, 53) !important;
   border-bottom:1px solid #ffffff;
@@ -261,6 +264,73 @@ main{
   opacity: 1;
   animation: entradaAnimada 0.3s ease-in-out;
 }
+
+.esconder-botoes{
+  display: none !important;
+}
+
+
+.editar{
+  background-image: url(/icons/pencil-square.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+  background-color: #095581;
+  transition: 0.2s;
+  transform: scale(1);
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.editar:hover{
+  transition: 0.2s;
+  transform: scale(1.1);
+}
+
+.verificar-remover{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.salvar-cancelar{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.salvar{
+  padding: 15px;
+  background-color:#1bd139;
+  font-family: 'openSans-medium';
+  cursor: pointer;
+  border-radius: 5px;
+  font-size:1.1rem;
+  transition: 0.2s;
+}
+.salvar:hover{
+  background-color:#1ff743;
+  transition: 0.2s;
+}
+
+.cancelar{
+  padding: 15px;
+  background-color:#e4c30c;
+  font-family: 'openSans-medium';
+  cursor: pointer;
+  border-radius: 5px;
+  font-size:1.1rem;
+  transition: 0.2s;
+}
+
+.cancelar:hover{
+  background-color:#ffdf2a;
+  transition: 0.2s;
+}
+
 
 @keyframes entradaAnimada {
   from{

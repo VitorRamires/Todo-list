@@ -12,11 +12,12 @@ function adicionandoTarefa(){
     alert('Preencha o campo corretamente')
   } else {
     let tarefa = document.createElement('div'),
-        descricaoTarefa = document.createElement('p')
+        descricaoTarefa = document.createElement('input')
     
     tarefasAtivas.appendChild(tarefa)
     tarefa.appendChild(descricaoTarefa)
-    descricaoTarefa.innerText = inputAddTarefa.value
+    descricaoTarefa.value = inputAddTarefa.value
+    descricaoTarefa.disabled = true
    
     tarefa.classList.add('tarefa', 'entrada-animada')
     descricaoTarefa.classList.add('descricao-tarefa')
@@ -28,35 +29,27 @@ function adicionandoTarefa(){
 
     const divCompletarTarefa = document.createElement('div'),
           completarTarefa = document.createElement('input'),
-          botaoCompletar = document.createElement('div')
+          botaoCompletar = document.createElement('div'),
+          verificarRemover = document.createElement('div')
 
-    
+   
     divCompletarTarefa.appendChild(completarTarefa)
     divCompletarTarefa.appendChild(botaoCompletar)
-    botoes.appendChild(divCompletarTarefa)
+    botoes.appendChild(verificarRemover)
+
+    verificarRemover.appendChild(divCompletarTarefa)
+    verificarRemover.classList.add('verificar-remover')
     
     completarTarefa.setAttribute('type', 'checkbox')
     botaoCompletar.classList.add('botao-completar')
     divCompletarTarefa.classList.add('completar-box')
   
-    completarTarefa.onclick = ()=>{
-      if(completarTarefa.checked === true){
-        tarefa.classList.add('completa')
-        descricaoTarefa.setAttribute('disabled', true)
-        tarefasCompletas.appendChild(tarefa)
-      } else {
-        tarefa.classList.remove('completa')
-        descricaoTarefa.removeAttribute('disabled')
-        tarefasAtivas.appendChild(tarefa)
-      }
-    }
-    
 
     const removerTarefa = document.createElement('a')
-    botoes.appendChild(removerTarefa)
+    verificarRemover.appendChild(removerTarefa)
     removerTarefa.classList.add('botao-remover')
     removerTarefa.onclick = ()=>{
-      if(tarefa.classList.contains('completa')){
+      if(tarefa.classList.contains('completar')){
         tarefasCompletas.removeChild(tarefa)
       } else {
         tarefasAtivas.removeChild(tarefa)
@@ -66,13 +59,70 @@ function adicionandoTarefa(){
     let todasTarefas = document.querySelectorAll('.tarefa')
     botaoLimpar.onclick = ()=>{
       todasTarefas.forEach(tarefaItem=>{
-        if(tarefaItem.classList.contains('completa')){
+        if(tarefaItem.classList.contains('completar')){
           tarefasCompletas.removeChild(tarefaItem)
         } else {
           tarefasAtivas.removeChild(tarefaItem)
         }
       })
     }
+
+
+    const valorInputSalvo = descricaoTarefa.value
+    let botaoEditar = document.createElement('div')
+    botaoEditar.classList.add('editar')
+    verificarRemover.appendChild(botaoEditar)
+    
+    botaoEditar.onclick = ()=>{
+      const salvarCancelar = document.createElement('div'),
+            salvar = document.createElement('a'),
+            cancelar = document.createElement('a')
+
+      descricaoTarefa.disabled = false
+
+      verificarRemover.classList.add('esconder-botoes')
+      salvarCancelar.classList.add('salvar-cancelar')
+      botoes.appendChild(salvarCancelar)
+
+      salvar.innerHTML = 'Salvar'
+      cancelar.innerHTML = 'Cancelar'
+
+      salvar.classList.add('salvar')
+      cancelar.classList.add('cancelar')
+
+      salvarCancelar.appendChild(salvar)
+      salvarCancelar.appendChild(cancelar)
+
+      salvar.addEventListener('click', ()=>{
+        if(descricaoTarefa.value === ''){
+          alert('preencha o campo de edição')
+        } else {
+          verificarRemover.classList.remove('esconder-botoes')
+          salvarCancelar.classList.add('esconder-botoes')
+          descricaoTarefa.disabled = true
+        }
+      })
+
+      cancelar.addEventListener('click', ()=>{
+        descricaoTarefa.value = valorInputSalvo
+        verificarRemover.classList.remove('esconder-botoes')
+        salvarCancelar.classList.add('esconder-botoes')
+      })
+    }
+
+
+    completarTarefa.onclick = ()=>{
+      if(completarTarefa.checked === true){
+        tarefa.classList.add('completar')
+        descricaoTarefa.setAttribute('disabled', true)
+        tarefasCompletas.appendChild(tarefa)
+      } else {
+        tarefa.classList.remove('completar')
+        descricaoTarefa.removeAttribute('disabled')
+        tarefasAtivas.appendChild(tarefa)
+      }
+    }
+    
 
   }
 }
