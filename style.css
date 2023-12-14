@@ -155,6 +155,11 @@ main{
   word-break: break-all;
 }
 
+input.descricao-tarefa{
+  font-size: 1.3rem;
+  font-family: 'openSans-regular';
+}
+
 .botoes{
   display: flex;
   align-items: center;

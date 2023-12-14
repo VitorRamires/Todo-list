@@ -79,6 +79,8 @@ function adicionandoTarefa(){
             cancelar = document.createElement('a')
 
       descricaoTarefa.disabled = false
+      descricaoTarefa.focus()
+      descricaoTarefa.setSelectionRange(descricaoTarefa.value.length, descricaoTarefa.value.length)
 
       verificarRemover.classList.add('esconder-botoes')
       salvarCancelar.classList.add('salvar-cancelar')
@@ -123,6 +125,7 @@ function adicionandoTarefa(){
       }
     }
     
+
 
   }
 }
