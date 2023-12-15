@@ -142,6 +142,7 @@ botaoAddTarefa.addEventListener('click', ()=>{
 inputAddTarefa.addEventListener('keyup', (event)=>{
   createCaracterCount.innerHTML = + inputAddTarefa.value.length + " / 20"
   inputAddTarefa.value.length === 0 ? createCaracterCount.classList.add('disable-count') : createCaracterCount.classList.remove('disable-count')
+  inputAddTarefa.value.length > 20 ? createCaracterCount.classList.add('caracter-ok') : createCaracterCount.classList.remove('caracter-ok')
   if(event.key === "Enter"){
     adicionandoTarefa()
     inputAddTarefa.value = ''
