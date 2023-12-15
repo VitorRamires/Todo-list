@@ -3,12 +3,12 @@ const painelTarefas = document.querySelector('.painel-tarefas'),
       tarefasCompletas = document.querySelector('.tarefas-completas')
       botaoAddTarefa = document.querySelector('.adicionar'),
       inputAddTarefa = document.querySelector('#addTarefa'),
-      botaoLimpar = document.querySelector('.limpar')
-      
+      botaoLimpar = document.querySelector('.limpar'),
+      createCaracterCount = document.querySelector('.caracter-count')
 
 
 function adicionandoTarefa(){
-  if(inputAddTarefa.value === ""){
+  if(inputAddTarefa.value === "" || inputAddTarefa.value.length > 20){
     alert('Preencha o campo corretamente')
   } else {
     let tarefa = document.createElement('div'),
@@ -96,8 +96,8 @@ function adicionandoTarefa(){
       salvarCancelar.appendChild(cancelar)
 
       salvar.addEventListener('click', ()=>{
-        if(descricaoTarefa.value === ''){
-          alert('preencha o campo de edição')
+        if(descricaoTarefa.value === '' || descricaoTarefa.value.length > 20){
+          alert('preencha o campo de edição corretamente')
         } else {
           verificarRemover.classList.remove('esconder-botoes')
           salvarCancelar.classList.add('esconder-botoes')
@@ -136,11 +136,16 @@ function adicionandoTarefa(){
 botaoAddTarefa.addEventListener('click', ()=>{
   adicionandoTarefa()
   inputAddTarefa.value = ''
-
+  createCaracterCount.innerHTML = 0
+  createCaracterCount.classList.add('disable-count')
 })
-inputAddTarefa.addEventListener('keydown', (event)=>{
+inputAddTarefa.addEventListener('keyup', (event)=>{
+  createCaracterCount.innerHTML = + inputAddTarefa.value.length + " / 20"
+  inputAddTarefa.value.length === 0 ? createCaracterCount.classList.add('disable-count') : createCaracterCount.classList.remove('disable-count')
   if(event.key === "Enter"){
     adicionandoTarefa()
     inputAddTarefa.value = ''
+    createCaracterCount.innerHTML = 0
+    createCaracterCount.classList.add('disable-count')
   }
 })
