@@ -281,8 +281,7 @@ input.descricao-tarefa{
   font-family: 'openSans-bold';
   font-size: 1.3rem;
   transition: 0.2s;
-  margin-top:10px;
-  border-radius: 10px;
+  border-radius: 0 0 10px 10px;
 }
 
 
