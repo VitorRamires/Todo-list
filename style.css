@@ -53,9 +53,7 @@ main{
 }
 
 .caracter-count{
-  position: absolute;
-  top: 5%;
-  left:5%;
+  position: relative;
   font-size: 0.8rem;
   color: #248a10;
   font-family: 'openSans-bold';
@@ -401,9 +399,12 @@ input.descricao-tarefa{
     border-radius: 0 !important;
   }
 
-
-
   .lista-body{
     padding: 30px 0;
   }
+
+  .caracter-count{
+    margin-left:15px;
+  }
+
 }
