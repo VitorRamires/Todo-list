@@ -133,7 +133,6 @@ main{
   background:linear-gradient(180deg,#4ADEFF, #C3F4FF);
   z-index: 2;
   border-radius: 15px;
-  box-shadow: 0 15px 30px 0px rgba(0, 0, 0, 0.301);
 }
 
 .lista-tarefas-box{
