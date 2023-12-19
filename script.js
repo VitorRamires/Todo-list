@@ -4,13 +4,15 @@ const painelTarefas = document.querySelector('.painel-tarefas'),
       botaoAddTarefa = document.querySelector('.adicionar'),
       inputAddTarefa = document.querySelector('#addTarefa'),
       botaoLimpar = document.querySelector('.limpar'),
-      createCaracterCount = document.querySelector('.caracter-count')
+      createCaracterCount = document.querySelector('.caracter-count'),
       numeroAtivas = document.querySelector('.numero-ativas')
+
+
 
 
 function adicionandoTarefa(event){
   if(inputAddTarefa.value === "" || inputAddTarefa.value.length > 20){
-    alert('Preencha o campo corretamente')
+    alert('Preencha o campo ou respeite o limite de caracteres')
   } else {
     let tarefa = document.createElement('div'),
         descricaoTarefa = document.createElement('input')

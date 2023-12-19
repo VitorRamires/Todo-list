@@ -22,7 +22,7 @@
 }
 
 body{
-  background-color: #ffffff;
+  background-color: #C3F4FF;
 }
 
 main{
@@ -30,6 +30,9 @@ main{
   width: 900px;
   max-width: 90%;
   margin:50px auto  0 auto;
+  background: linear-gradient(180deg, #4ADEFF, #4ADEFF, #C3F4FF);
+  padding:50px;
+  border-radius: 10px 10px 0 0;
 }
 
 .alerta{
@@ -55,10 +58,11 @@ main{
 .caracter-count{
   position: absolute;
   bottom:10%;
-  right:19%;
+  right:20%;
   font-size: 0.8rem;
-  color: #2b2b2b;
+  color: #0ccf5e;
   font-family: 'openSans-bold';
+  text-shadow: #0c0c0c65 1px 1px 1px;
 }
 
 .caracter-ok{
@@ -90,10 +94,26 @@ main{
   outline: none;
   font-size:1.3rem;
   font-family: 'openSans-regular';
-  background-color: #d1edfd;
+  background-color: #ffffff;
   height: 100px;
 }
 
+.titulo-todo{
+  display: flex;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: 'openSans-bold';
+  font-size: 1.3rem;
+  margin-top: 100px;
+}
+
+.titulo-todo img{
+  width: 60px;
+  height: 60px;
+}
 
 .input-tarefa .adicionar{
   width: 20%;
@@ -144,6 +164,7 @@ main{
   justify-content: center;
   margin-top:65px;
   font-family: 'openSans-light';
+  font-size: 0.8rem;
 }
 
 .tarefa{
@@ -174,7 +195,7 @@ main{
 }
 
 input.descricao-tarefa{
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-family: 'openSans-regular';
   color: #0c0c0c;
 }
@@ -412,15 +433,42 @@ input.descricao-tarefa{
   }
 
   .adicionar{
-    border-radius: 0 !important;
-  }
-
-  .lista-body{
-    padding: 30px 0;
+    border-radius: 0 0 10px 10px !important;
   }
 
   .caracter-count{
-    margin-left:15px;
+    top:7%;
+    right:4%;
   }
 
+  main{
+    padding:50px 20px;
+  }
+}
+
+@media screen and (max-width:360px) {
+  .titulo-todo{
+    flex-wrap: wrap;
+    padding:0 10px;
+  }
+
+  .tarefas-ativas, .tarefas-completas{
+    padding:30px 15px;
+  }
+
+  .limpar{
+    font-size: 1.1rem;
+  }
+}
+
+
+@media screen and (max-width:315px) {
+  .editar, .botao-remover, .botao-completar, .completar-box{
+    width: 40px;
+    height: 40px;
+  }
+
+  .tarefas-ativas, .tarefas-completas{
+    padding:30px 15px;
+  }
 }
