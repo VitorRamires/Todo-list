@@ -22,14 +22,14 @@
 }
 
 body{
-  background-color: #C3F4FF;
+  background-color: #ffffff;
 }
 
 main{
   position: relative;
   width: 900px;
   max-width: 90%;
-  margin:100px auto  0 auto;
+  margin:50px auto  0 auto;
 }
 
 .alerta{
@@ -53,14 +53,16 @@ main{
 }
 
 .caracter-count{
-  position: relative;
+  position: absolute;
+  bottom:10%;
+  right:19%;
   font-size: 0.8rem;
-  color: #248a10;
+  color: #2b2b2b;
   font-family: 'openSans-bold';
 }
 
 .caracter-ok{
-  color: #b60505;
+  color: #c70101;
 }
 
 .disable-count{
@@ -76,18 +78,20 @@ main{
 .input-tarefa{
   display: flex;
   height: 100%;
-  width: 90%;
+  width: 100%;
   margin:0 auto;
 }
 
 .input-tarefa [type=text]{
   width: 100%;
   padding: 10px 5px 10px 25px;
-  border-radius: 15px 0 0 0;
+  border-radius: 10px 0 0 10px;
   border: none;
   outline: none;
   font-size:1.3rem;
   font-family: 'openSans-regular';
+  background-color: #d1edfd;
+  height: 100px;
 }
 
 
@@ -97,7 +101,7 @@ main{
   outline: 0;
   border: 0;
   cursor: pointer;
-  border-radius: 0 15px 0 0;
+  border-radius: 0 10px 10px 0;
 
 }
 
@@ -113,10 +117,11 @@ main{
   transition: 0.2s;
 }
 #addTarefa:focus{
-  background-color: #288cff;
+  background-color: #429aff;
   transition: 0.2s;
   color: #ffffff;
 }
+
 
 #addTarefa:focus::placeholder {
   color:transparent;
@@ -127,36 +132,34 @@ main{
 .lista-body{
   position: relative;
   width: 100%;
-  padding:30px 60px;
-  background:linear-gradient(180deg,#4ADEFF, #C3F4FF);
   z-index: 2;
   border-radius: 15px;
 }
 
-.lista-tarefas-box{
-  padding-top:30px;
-}
+
 
 .painel-tarefas{
   display: flex;
   flex-direction: column-reverse;
   justify-content: center;
+  margin-top:65px;
+  font-family: 'openSans-light';
 }
 
 .tarefa{
   display:flex;
-  justify-content: space-between;
-  align-items: center;
-  padding:10px 15px;
+  flex-direction:row-reverse;
+  justify-content: space-evenly;
+  align-items: end;
   font-size:1.2rem;
   font-family: 'openSans-regular';
+  gap: 30px;
+  margin:40px 0;
 }
 
-.tarefa:nth-child(odd){
-  background-color: #E1F7FC;
-}
-.tarefa:nth-child(even){
-  background-color: #C5F0FA;
+
+.tarefa:first-child:not(.completar){
+  border-radius: 10px 10px 0 0;
 }
 
 .descricao-tarefa{
@@ -166,6 +169,8 @@ main{
   outline: none;
   border: none;
   word-break: break-all;
+  border-bottom: 1px solid #575757;
+  padding: 0 0 5px 0;
 }
 
 input.descricao-tarefa{
@@ -258,13 +263,24 @@ input.descricao-tarefa{
 
 
 .completar{
-  background-color: #a6f5cb !important;
-  border-bottom:1px solid #ffffff;
   font-family: 'openSans-light';
 }
 
-.completar .descricao-tarefa{
-  color:#535353 !important;
+.tarefa.completar .descricao-tarefa{
+  color:#a3a3a3;
+  position: relative;
+  text-decoration-line:line-through;
+  border-bottom: 1px solid #a3a3a3;
+}
+
+.tarefas-ativas{
+  padding:30px 30px;
+  background-color: #ffe8b6;
+  border-radius: 10px 10px 0 0;
+}
+.tarefas-completas{
+  padding:30px 30px;
+  background-color: #d2ffce;
 }
 
 .limpar{
@@ -278,7 +294,7 @@ input.descricao-tarefa{
   font-family: 'openSans-bold';
   font-size: 1.3rem;
   transition: 0.2s;
-  border-radius: 0 0 10px 10px;
+  border-radius:  0 0 10px 10px;
 }
 
 

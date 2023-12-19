@@ -5,15 +5,17 @@ const painelTarefas = document.querySelector('.painel-tarefas'),
       inputAddTarefa = document.querySelector('#addTarefa'),
       botaoLimpar = document.querySelector('.limpar'),
       createCaracterCount = document.querySelector('.caracter-count')
+      numeroAtivas = document.querySelector('.numero-ativas')
 
 
-function adicionandoTarefa(){
+function adicionandoTarefa(event){
   if(inputAddTarefa.value === "" || inputAddTarefa.value.length > 20){
     alert('Preencha o campo corretamente')
   } else {
     let tarefa = document.createElement('div'),
         descricaoTarefa = document.createElement('input')
-    
+        
+
     tarefasAtivas.appendChild(tarefa)
     tarefa.appendChild(descricaoTarefa)
     descricaoTarefa.value = inputAddTarefa.value
@@ -43,6 +45,20 @@ function adicionandoTarefa(){
     completarTarefa.setAttribute('type', 'checkbox')
     botaoCompletar.classList.add('botao-completar')
     divCompletarTarefa.classList.add('completar-box')
+
+
+    completarTarefa.onclick = ()=>{
+      if(completarTarefa.checked === true){
+        tarefa.classList.add('completar')
+        descricaoTarefa.setAttribute('disabled', true)
+        tarefasCompletas.appendChild(tarefa)
+      } else {
+        tarefa.classList.remove('completar')
+        descricaoTarefa.removeAttribute('disabled')
+        tarefasAtivas.appendChild(tarefa)
+      }
+    }
+    
   
 
     const removerTarefa = document.createElement('a')
@@ -114,18 +130,7 @@ function adicionandoTarefa(){
     }
 
 
-    completarTarefa.onclick = ()=>{
-      if(completarTarefa.checked === true){
-        tarefa.classList.add('completar')
-        descricaoTarefa.setAttribute('disabled', true)
-        tarefasCompletas.appendChild(tarefa)
-      } else {
-        tarefa.classList.remove('completar')
-        descricaoTarefa.removeAttribute('disabled')
-        tarefasAtivas.appendChild(tarefa)
-      }
-    }
-    
+
 
 
   }
@@ -133,8 +138,8 @@ function adicionandoTarefa(){
 
 
 
-botaoAddTarefa.addEventListener('click', ()=>{
-  adicionandoTarefa()
+botaoAddTarefa.addEventListener('click', (event)=>{
+  adicionandoTarefa(event)
   inputAddTarefa.value = ''
   createCaracterCount.innerHTML = 0
   createCaracterCount.classList.add('disable-count')
