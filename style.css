@@ -35,48 +35,21 @@ main{
   border-radius: 10px 10px 0 0;
 }
 
-.alerta{
-  position: fixed;
-  top:4%;
-  left:50%;
-  transform: translateX(-50%);
-  padding: 20px;
-  background-color: red;
-  width: 250px;
-  max-width: 100%;
-  margin:0 auto;
-  z-index: 4;
-  font-size:1.5rem;
-  text-align: center;
-  display: none;
-}
-
-.mostrar-alerta{
-  display: block;
-}
-
-.caracter-count{
-  position: absolute;
-  bottom:10%;
-  right:20%;
-  font-size: 0.8rem;
-  color: #0ccf5e;
-  font-family: 'openSans-bold';
-  text-shadow: #0c0c0c65 1px 1px 1px;
-}
-
-.caracter-ok{
-  color: #c70101;
-}
-
-.disable-count{
-  opacity: 0;
-}
 
 .todo-info-input{
   position: relative;
+}
+
+.titulo-todo{
+  display: flex;
   width: 100%;
-  z-index: 3;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: 'openSans-bold';
+  font-size: 1.3rem;
+  margin-top: 100px;
 }
 
 .input-tarefa{
@@ -98,21 +71,18 @@ main{
   height: 100px;
 }
 
-.titulo-todo{
-  display: flex;
-  width: 100%;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+.caracter-count{
+  position: absolute;
+  top:5%;
+  right:20%;
+  font-size: 0.6rem;
+  color: #424242;
   font-family: 'openSans-bold';
-  font-size: 1.3rem;
-  margin-top: 100px;
+  text-shadow: #0c0c0c65 1px 1px 1px;
 }
 
-.titulo-todo img{
-  width: 60px;
-  height: 60px;
+.caracter-ok{
+  color: #c70101;
 }
 
 .input-tarefa .adicionar{
@@ -122,17 +92,14 @@ main{
   border: 0;
   cursor: pointer;
   border-radius: 0 10px 10px 0;
-
 }
 
-.adicionar img:hover{
-  transform: scale(1.2);
-  transition: 0.2s;
+.titulo-todo img{
+  width: 60px;
+  height: 60px;
 }
-.adicionar img{
-  transform: scale(1);
-  transition: 0.2s;
-}
+
+
 #addTarefa{
   transition: 0.2s;
 }
@@ -141,22 +108,16 @@ main{
   transition: 0.2s;
   color: #ffffff;
 }
-
-
 #addTarefa:focus::placeholder {
   color:transparent;
   opacity: 1;
 }
-
-
 .lista-body{
   position: relative;
   width: 100%;
   z-index: 2;
   border-radius: 15px;
 }
-
-
 
 .painel-tarefas{
   display: flex;
@@ -167,106 +128,96 @@ main{
   font-size: 0.8rem;
 }
 
-.tarefa{
-  display:flex;
-  flex-direction:row-reverse;
-  justify-content: space-evenly;
-  align-items: end;
-  font-size:1.2rem;
-  font-family: 'openSans-regular';
-  gap: 30px;
-  margin:40px 0;
-}
 
-
-.tarefa:first-child:not(.completar){
+.tarefas-ativas{
+  padding:30px 30px;
+  background-color: #ffe8b6;
   border-radius: 10px 10px 0 0;
 }
 
-.descricao-tarefa{
-  position: relative;
-  width: 100%;
-  background-color: transparent;
-  outline: none;
-  border: none;
-  word-break: break-all;
-  border-bottom: 1px solid #575757;
-  padding: 0 0 5px 0;
+.tarefas-completas{
+  padding:30px 30px;
+  background-color: #d2ffce;
 }
 
-input.descricao-tarefa{
-  font-size: 1rem;
-  font-family: 'openSans-regular';
-  color: #0c0c0c;
+.tarefas-ativas h2, .tarefas-completas h2{
+  margin-bottom:40px;
 }
 
-.botoes{
+.box-tarefa{
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 20px;
+  justify-content: space-between;
+  padding:20px 10px 20px 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.tarefas-ativas .box-tarefa{
+  background-color: #ffcf67;
+}
+
+.tarefas-completas .box-tarefa{
+  background-color: #75fc68;
+}
+
+.botoes-tarefa{
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap:20px;
+}
+
+.texto-tarefa{
+  width: 100%;
+  height: 30px;
+  outline: none;
+  border:none;
+  background-color: transparent;
+  font-size: 1rem;
 }
 
 .botao-remover{
   position: relative;
+  background-image: url(./icons/trash-fill.svg);
+  background-size: contain;
+  background-position: center;
+  padding:20px;
+  transition: 0.25s;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.botao-editar{
   display: block;
-  background-color: #CF0000;
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-  transform: scale(1);
-  transition: 0.2s;
-  border-radius: 5px;
-}
-
-.botao-remover:hover{
-  transform: scale(1.1);
-  transition: 0.2s;
-}
-
-.botao-remover::after{
-  content: "";
-  width: 30px;
-  height: 3px;
-  background-color: white;
-  position: absolute;
-  top:50%;
-  left:50%;
-  transform: translate(-50%, -50%) rotate(40deg);
-  z-index: 1;
-}
-.botao-remover::before{
-  content: "";
-  width: 30px;
-  height: 3px;
-  background-color: white;
-  position: absolute;
-  top:50%;
-  left:50%;
-  transform: translate(-50%, -50%) rotate(-40deg);
-  z-index: 1;
-}
-
-.completar-box{
   position: relative;
-  width: 50px;
-  height: 50px;
-  transform: scale(1);
-  transition: 0.2s;
-}
-
-.completar-box:hover{
-  transform: scale(1.1);
-  transition: 0.2s;
-}
-
-[type=checkbox]{
-  position: relative;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  opacity: 0;
+  background-image: url(./icons/pen-fill.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding:19px;
+  transition: 0.25s;
   cursor: pointer;
+}
+
+.salvar-edicão{
+  background-image: url(./icons/pen.svg) !important;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.destacar-tarefa-modificada{
+  animation: tarefaEdit 2.5s ease-in infinite;
+}
+
+.box-completar{
+  position: relative;
+  width: 38px;
+  height: 38px;
+  transition: 0.25s;
 }
 
 .botao-completar{
@@ -275,34 +226,43 @@ input.descricao-tarefa{
   left:0;
   width: 100%;
   height: 100%;
-  background-color: #44D185;
-  background-image: url(/icons/check.svg);
-  background-position: center;
-  background-size: cover;
+  z-index: 2;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.personalizar-completar{
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(237, 255, 235);
+  z-index: 1;
   border-radius: 5px;
 }
 
 
-.completar{
-  font-family: 'openSans-light';
+
+.box-completar:hover, 
+.botao-completar:hover, 
+.botao-editar:hover, 
+.salvar-edicão:hover, 
+.botao-remover:hover{
+  transform: scale(1.1);
+  transition: 0.25s;
 }
 
-.tarefa.completar .descricao-tarefa{
-  color:#a3a3a3;
-  position: relative;
-  text-decoration-line:line-through;
-  border-bottom: 1px solid #a3a3a3;
+.completada .botoes-tarefa .box-completar .personalizar-completar{
+  background-color: rgb(18, 182, 0) !important;
+  background-image: url(./icons/check.svg);
+  background-position: center;
 }
 
-.tarefas-ativas{
-  padding:30px 30px;
-  background-color: #ffe8b6;
-  border-radius: 10px 10px 0 0;
+.completada .botoes-tarefa .botao-editar{
+  display: none;
 }
-.tarefas-completas{
-  padding:30px 30px;
-  background-color: #d2ffce;
-}
+
 
 .limpar{
   width: 100%;
@@ -325,150 +285,67 @@ input.descricao-tarefa{
 }
 
 
-.entrada-animada{
-  opacity: 1;
-  animation: entradaAnimada 0.3s ease-in-out;
-}
-
-.esconder-botoes{
-  display: none !important;
-}
-
-
-.editar{
-  background-image: url(/icons/pencil-square.svg);
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 50px;
-  height: 50px;
-  background-color: #095581;
-  transition: 0.2s;
-  transform: scale(1);
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.editar:hover{
-  transition: 0.2s;
-  transform: scale(1.1);
-}
-
-.verificar-remover{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-
-.salvar-cancelar{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-
-.salvar{
-  padding: 15px;
-  background-color:#1bd139;
-  font-family: 'openSans-medium';
-  cursor: pointer;
-  border-radius: 5px;
-  font-size:1.1rem;
-  transition: 0.2s;
-}
-.salvar:hover{
-  background-color:#1ff743;
-  transition: 0.2s;
-}
-
-.cancelar{
-  padding: 15px;
-  background-color:#e4c30c;
-  font-family: 'openSans-medium';
-  cursor: pointer;
-  border-radius: 5px;
-  font-size:1.1rem;
-  transition: 0.2s;
-}
-
-.cancelar:hover{
-  background-color:#ffdf2a;
-  transition: 0.2s;
-}
-
-
-@keyframes entradaAnimada {
-  from{
-    opacity: 0;
-    transform: translateX(-7%);
-  }
-  to{
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@media screen and (max-width:750px) {
-  .tarefa{
-    display: block;
-    padding-top:20px;
-  }
-  .botoes{
-    justify-content: start;
-    margin-top:30px;
-  }
-}
-@media screen and (max-width:550px) {
+@media screen and (max-width:720px) {
   .input-tarefa{
-    flex-direction: column  ;
+    flex-direction: column;
   }
-
   .input-tarefa .adicionar{
     width: 100%;
+    border-radius: 0 0 10px 10px;
   }
-
-  .input-tarefa [type="text"]{
-    border-radius: 15px 15px 0 0;
-    padding: 20px 5px 20px 25px;
+  .input-tarefa [type=text]{
+    border-radius: 10px 10px 0 0;
+    padding: 10px 2px 10px 10px;
   }
-
-  .adicionar{
-    border-radius: 0 0 10px 10px !important;
-  }
-
   .caracter-count{
-    top:7%;
-    right:4%;
+    right:3%;
   }
 
+}
+
+@media screen and (max-width:640px) {
+  .box-tarefa{
+    display: block;
+  }
+  .botoes-tarefa{
+    justify-content: start;
+    gap: 10px;
+    margin-top:15px;
+  }
+  .botao-remover, .botao-editar{
+    padding: 15px;
+  }
+  .box-completar{
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media screen and (max-width:460px) {
+  .texto-tarefa{
+    font-size: 0.9rem;
+  }
+  .tarefas-ativas, .tarefas-completas{
+    padding:30px 15px;
+  }
   main{
-    padding:50px 20px;
+    padding:0 0 50px 0;
+    background: transparent;
   }
-}
-
-@media screen and (max-width:360px) {
   .titulo-todo{
-    flex-wrap: wrap;
-    padding:0 10px;
-  }
-
-  .tarefas-ativas, .tarefas-completas{
-    padding:30px 15px;
-  }
-
-  .limpar{
-    font-size: 1.1rem;
+    flex-direction: column;
   }
 }
 
-
-@media screen and (max-width:315px) {
-  .editar, .botao-remover, .botao-completar, .completar-box{
-    width: 40px;
-    height: 40px;
+@keyframes tarefaEdit {
+  0%{
+    background-color: #ffcf67;
   }
-
-  .tarefas-ativas, .tarefas-completas{
-    padding:30px 15px;
+  50%{
+    background-color: #ecaf2a;;
+  }
+  100%{
+    background-color: #ffcf67;
   }
 }
+
