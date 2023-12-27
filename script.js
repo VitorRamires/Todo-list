@@ -112,7 +112,7 @@ function limparPainelTarefas(){
 
 function keyboardHandler(event){
   caracterCount.innerHTML = inputAddTarefa.value.length + " / 20"
-  inputAddTarefa.value.length > 25 ? caracterCount.classList.add('caracter-ok') : caracterCount.classList.remove('caracter-ok')
+  inputAddTarefa.value.length > 20 ? caracterCount.classList.add('caracter-ok') : caracterCount.classList.remove('caracter-ok')
   if(event.key === "Enter"){
     criarTarefa()
     inputAddTarefa.value = ''
