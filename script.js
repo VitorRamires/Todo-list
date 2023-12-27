@@ -10,6 +10,9 @@ const caracterCount = document.querySelector('.caracter-count')
 function criarTarefa(){
   if(inputAddTarefa.value === '' || inputAddTarefa.value.length > 20){
       alert('Preencha o campo corretamente')
+      inputAddTarefa.value = ''
+      caracterCount.innerHTML = 0 + " / 20"
+      caracterCount.classList.remove('caracter-ok')
   } else {
     let createTarefa = document.createElement('div')
     let createTexto = document.createElement('input')
@@ -108,7 +111,6 @@ function limparPainelTarefas(){
     }
   })
 }
-
 
 function keyboardHandler(event){
   caracterCount.innerHTML = inputAddTarefa.value.length + " / 20"

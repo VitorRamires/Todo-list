@@ -71,11 +71,19 @@ main{
   height: 100px;
 }
 
+.caracteres{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+  margin-bottom:10px;
+  font-family: 'openSans-regular';
+  font-size: 0.8rem;
+}
+
 .caracter-count{
-  position: absolute;
-  top:5%;
-  right:20%;
-  font-size: 0.6rem;
+  position: relative;
   color: #424242;
   font-family: 'openSans-bold';
   text-shadow: #0c0c0c65 1px 1px 1px;
@@ -297,10 +305,6 @@ main{
     border-radius: 10px 10px 0 0;
     padding: 10px 2px 10px 10px;
   }
-  .caracter-count{
-    right:3%;
-  }
-
 }
 
 @media screen and (max-width:640px) {
@@ -329,8 +333,8 @@ main{
     padding:30px 15px;
   }
   main{
-    padding:0 0 50px 0;
-    background: transparent;
+    padding:25px 7px 50px 7px;
+    max-width: 100%;
   }
   .titulo-todo{
     flex-direction: column;
