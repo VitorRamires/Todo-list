@@ -326,7 +326,7 @@ main{
 }
 
 @media screen and (max-width:460px) {
-  .texto-tarefa{
+  .texto-tarefa{ 
     font-size: 0.9rem;
   }
   .tarefas-ativas, .tarefas-completas{
