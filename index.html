@@ -7,16 +7,38 @@
   <title>Document</title>
 </head>
 <body>
+
+  <div class="titulo-todo">
+    <img src="/icons/todo_list.svg" alt="svg-todo-image" class="icon">
+    <h2>Lista de tarefas</h2>
+  </div>
+
 <main>
-  <p class="proximo">proximo</p>
-  <p class="anterior">anterior</p>
-  <section class="titulo-section">
-    <h2>Bitcoin</h2>
+  <section class="todo-info-input">
+    <div class="caracteres">
+      <p class="numero-caracteres">Numero de caracteres:</p><span class= "caracter-count">0 / 20</span></p>
+    </div>
+    <div class="input-tarefa">
+      <label for="tarefa"></label>
+      <input type="text" name="tarefa" id="addTarefa" placeholder="Digite sua tarefa!">
+      <button class="adicionar"><img src="./icons/plus.svg"></button>
+    </div>
   </section>
-  <section class="painel-moedas">
-    <div class="painel-moedas-box"></div>
-  </section>
+  <div class="lista-body">
+    <section class="lista-tarefas-box">
+      <div class="painel-tarefas">
+        <div class="tarefas-completas">
+          <h2>Completas</h2>
+        </div>
+        <div class="tarefas-ativas">
+         <h2>Em andamento</h2>
+        </div>
+      </div>
+      <button class="limpar">Limpar tarefas</button>
+    </section>
+  </div>
 </main>
-<script src="JS/script.js"></script>
+
+<script src="script.js"></script>
 </body>
 </html>
