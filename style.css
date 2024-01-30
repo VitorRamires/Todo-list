@@ -27,17 +27,6 @@ body{
   background: linear-gradient(170deg, #29446B, #A53636);
 }
 
-.tarefas-completas::-webkit-scrollbar-track{
-  background: #23740a;
-}
-
-.tarefas-completas::-webkit-scrollbar-thumb{
-  background: #cf2121;
-}
-
-.tarefas-completas::-webkit-scrollbar-thumb:hover{
-  background: #ff5201;
-}
 
 main{
   position: absolute;
@@ -232,7 +221,7 @@ main{
 }
 
 .tarefas-completas .box-tarefa{
-  background-color: #29446B;
+  background-color: #0a1d3a;
   color:#1c2e47;
 }
 
