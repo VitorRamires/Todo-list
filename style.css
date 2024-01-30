@@ -2,6 +2,7 @@
   box-sizing: border-box;
   padding:0;
   margin: 0;
+  color:#ffffff;
 }
 
 @font-face {
@@ -21,18 +22,21 @@
   src: url(/fonts/OpenSans-Light.ttf);
 }
 
-body{
-  background-color: #C3F4FF;
+.body{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(180deg, #29446B, #A53636);
 }
 
 main{
   position: relative;
-  width: 900px;
+  width: 700px;
   max-width: 90%;
   margin:50px auto  0 auto;
-  background: linear-gradient(180deg, #4ADEFF, #4ADEFF, #C3F4FF);
+  background-color:#29446B;
   padding:50px;
-  border-radius: 10px 10px 0 0;
+  border-radius: 5px 5px 0 0;
 }
 
 
@@ -49,7 +53,6 @@ main{
   gap: 10px;
   font-family: 'openSans-bold';
   font-size: 1.3rem;
-  margin-top: 100px;
 }
 
 .input-tarefa{
@@ -60,15 +63,16 @@ main{
 }
 
 .input-tarefa [type=text]{
-  width: 100%;
+  width: 85%;
   padding: 10px 5px 10px 25px;
-  border-radius: 10px 0 0 10px;
+  border-radius: 5px 0 0 5px;
   border: none;
   outline: none;
   font-size:1.3rem;
   font-family: 'openSans-regular';
-  background-color: #ffffff;
-  height: 100px;
+  background-color: #ececec;
+  height: 80px;
+  color: #29446B;
 }
 
 .caracteres{
@@ -94,12 +98,12 @@ main{
 }
 
 .input-tarefa .adicionar{
-  width: 20%;
-  background-color: #26B1FF;
+  width: 25%;
+  background: linear-gradient(170deg, #A53636, #EF3838);
   outline: 0;
   border: 0;
   cursor: pointer;
-  border-radius: 0 10px 10px 0;
+  border-radius: 0 5px 5px 0;
 }
 
 .titulo-todo img{
@@ -112,9 +116,8 @@ main{
   transition: 0.2s;
 }
 #addTarefa:focus{
-  background-color: #429aff;
+  background-color: #ffffff;
   transition: 0.2s;
-  color: #ffffff;
 }
 #addTarefa:focus::placeholder {
   color:transparent;
@@ -137,11 +140,6 @@ main{
 }
 
 
-.tarefas-ativas{
-  padding:30px 30px;
-  background-color: #ffe8b6;
-  border-radius: 10px 10px 0 0;
-}
 
 .tarefas-completas{
   padding:30px 30px;
@@ -159,15 +157,10 @@ main{
   padding:20px 10px 20px 15px;
   border-radius: 10px;
   margin-bottom: 20px;
+  background-color: #1F314A;
 }
 
-.tarefas-ativas .box-tarefa{
-  background-color: #ffcf67;
-}
 
-.tarefas-completas .box-tarefa{
-  background-color: #75fc68;
-}
 
 .botoes-tarefa{
   display: flex;
@@ -245,7 +238,7 @@ main{
   left:0;
   width: 100%;
   height: 100%;
-  background-color: rgb(237, 255, 235);
+  background-color: #d9d9d931;
   z-index: 1;
   border-radius: 5px;
 }
@@ -353,3 +346,8 @@ main{
   }
 }
 
+
+
+.tarefas-completas{
+  opacity: 0;
+}
