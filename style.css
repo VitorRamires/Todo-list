@@ -45,11 +45,12 @@ main{
   left: 50%;
   transform: translate(-50%, -50%);
   width: 600px;
-  max-width: 90%;
+  max-width: 100%;
   margin:0 auto;
-  background-color:#315485;
+  background-color:#29446B;
   border-radius: 5px 5px 0 0;
   margin:0 auto;
+  box-shadow: 10px 10px 10px 0px #00000059;
 }
 
 .todo-list{
@@ -153,7 +154,7 @@ main{
 
 .painel-tarefas{
   display: flex;
-  height: 400px;
+  height: 350px;
   flex-direction: column-reverse;
   justify-content: flex-end;
   margin-top:65px;
@@ -203,6 +204,7 @@ main{
   transform: scale(1);
   transition: 0.2s;
   box-shadow: 5px 5px 5px 0px #0000007c;
+  margin-top:10px;
 }
 
 .mudar-painel:hover{
@@ -216,13 +218,14 @@ main{
 }
 
 .box-tarefa{
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding:20px 10px 20px 15px;
   border-radius: 5px;
   margin-bottom: 20px;
-  background-color: #29446B;
+  background-color: #1F314A;
   gap: 20px;
   opacity: 1;
   animation: animEntrance .3s ease-in;
@@ -355,7 +358,6 @@ main{
   font-family: 'openSans-bold';
   font-size: 1.6rem;
   transition: 0.2s;
-  box-shadow: 5px 5px 5px 0px #0000007c;
 }
 
 
@@ -365,63 +367,16 @@ main{
 }
 
 
-@media screen and (max-width:720px) {
-  .input-tarefa{
-    flex-direction: column;
-  }
-  .input-tarefa .adicionar{
-    width: 100%;
-    border-radius: 0 0 10px 10px;
-  }
-  .input-tarefa [type=text]{
-    border-radius: 10px 10px 0 0;
-    padding: 10px 2px 10px 10px;
-  }
-}
-
-@media screen and (max-width:640px) {
-  .box-tarefa{
-    display: block;
-  }
-  .botoes-tarefa{
-    justify-content: start;
-    gap: 10px;
-    margin-top:15px;
-  }
-  .botao-remover, .botao-editar{
-    padding: 15px;
-  }
-  .box-completar{
-    width: 30px;
-    height: 30px;
-  }
-}
-
-@media screen and (max-width:460px) {
-  .texto-tarefa{ 
-    font-size: 0.9rem;
-  }
-  .tarefas-ativas, .tarefas-completas{
-    padding:30px 15px;
-  }
-  main{
-    padding:25px 7px 50px 7px;
-    max-width: 100%;
-  }
-  .titulo-todo{
-    flex-direction: column;
-  }
-}
 
 @keyframes tarefaEdit {
   0%{
-    background-color: #29446B;
+    background-color: #1F314A;
   }
   50%{
     background-color: #041833;
   }
   100%{
-    background-color: #29446B;
+    background-color: #1F314A;
   }
 }
 
@@ -442,5 +397,56 @@ main{
   }
   100%{
     transform: translateX(0);
+  }
+}
+
+
+
+@media screen and (max-width:600px){
+  .todo-list{
+    padding: 50px 15px;
+  }
+}
+
+@media screen and (max-width:480px){
+  .box-tarefa{
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+  }
+  .botoes-tarefa{
+    justify-content: flex-start;
+  }
+  .box-editar{
+    position: absolute;
+    bottom:15%;
+    right:5%;
+  }
+}
+
+@media screen and (max-width:330px){
+  .input-tarefa{
+    flex-direction: column;
+  }
+  .input-tarefa .adicionar{
+    width: 100%;
+    border-radius: 0 0 5px 5px;
+  }
+  .input-tarefa [type=text]{
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+  }
+
+  .box-tarefa .botao-remover{
+    padding:15px;
+  }
+
+  .box-tarefa .box-completar{
+    width: 30px;
+    height: 30px;
+  }
+
+  .botoes-tarefa{
+    gap: 10px;
   }
 }
