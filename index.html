@@ -8,33 +8,32 @@
 </head>
 <body>
 
-  <div class="body">
-  <div class="titulo-todo">
-    <img src="/icons/todo_list.svg" alt="svg-todo-image" class="icon">
-    <h2>Lista de tarefas</h2>
-  </div>
   <main>
-    <section class="todo-info-input">
-      <div class="caracteres">
-        <p class="numero-caracteres">Numero de caracteres:</p><span class= "caracter-count">0 / 20</span></p>
-      </div>
-      <div class="input-tarefa">
-        <label for="tarefa"></label>
-        <input type="text" name="tarefa" id="addTarefa">
-        <button class="adicionar"><img src="./icons/plus.svg"></button>
-      </div>
-    </section>
-    <div class="lista-body">
-      <section class="lista-tarefas-box">
-        <div class="painel-tarefas">
-          <div class="tarefas-completas">
-            <h2>Completas</h2>
-          </div>
-          <div class="tarefas-ativas"></div>
+    <div class="todo-list">
+      <section class="todo-info-input">
+        <div class="tarefas-de-hoje">
+          <p>Quais as tarefas de hoje?</p>
         </div>
-        <button class="limpar">Limpar tarefas</button>
+        <div class="input-tarefa">
+          <label for="tarefa"></label>
+          <input type="text" name="tarefa" id="addTarefa">
+          <button class="adicionar"><img src="./icons/plus.svg"></button>
+        </div>
+        <div class="caracteres">
+          <p class="numero-caracteres">Caracteres:</p><span class= "caracter-count">0 / 20</span></p>
+        </div>
       </section>
+      <div class="lista-body">
+        <div class="painel-tarefas">
+          <div class="tarefas-completas"></div>
+          <div class="tarefas-ativas mostrar-painel"></div>
+        </div>
+      </div>
+      <div class="mudar-painel">
+        <p>Tarefas completas</p>
+      </div>
     </div>
+    <button class="limpar">Limpar</button>
   </main>
 </div>
 

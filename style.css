@@ -22,37 +22,57 @@
   src: url(/fonts/OpenSans-Light.ttf);
 }
 
-.body{
-  position: relative;
-  width: 100%;
+body{
   height: 100vh;
-  background: linear-gradient(180deg, #29446B, #A53636);
+  background: linear-gradient(170deg, #29446B, #A53636);
+}
+
+.tarefas-completas::-webkit-scrollbar-track{
+  background: #23740a;
+}
+
+.tarefas-completas::-webkit-scrollbar-thumb{
+  background: #cf2121;
+}
+
+.tarefas-completas::-webkit-scrollbar-thumb:hover{
+  background: #ff5201;
 }
 
 main{
-  position: relative;
-  width: 700px;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
   max-width: 90%;
-  margin:50px auto  0 auto;
-  background-color:#29446B;
-  padding:50px;
+  margin:0 auto;
+  background-color:#315485;
   border-radius: 5px 5px 0 0;
+  margin:0 auto;
 }
 
+.todo-list{
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  padding:50px;
+  gap: 10px;
+}
 
 .todo-info-input{
+  width: 100%;
   position: relative;
+  margin-bottom:10px;
 }
 
-.titulo-todo{
-  display: flex;
-  width: 100%;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  font-family: 'openSans-bold';
-  font-size: 1.3rem;
+.tarefas-de-hoje{
+  font-family: 'openSans-regular';
+  font-size: 1.2rem;
+  margin-bottom:30px;
 }
 
 .input-tarefa{
@@ -60,6 +80,7 @@ main{
   height: 100%;
   width: 100%;
   margin:0 auto;
+  margin-bottom:10px;
 }
 
 .input-tarefa [type=text]{
@@ -83,12 +104,12 @@ main{
   gap: 10px;
   margin-bottom:10px;
   font-family: 'openSans-regular';
-  font-size: 0.8rem;
+  font-size: 0.7rem;
 }
 
 .caracter-count{
   position: relative;
-  color: #424242;
+  color: #11ad45;
   font-family: 'openSans-bold';
   text-shadow: #0c0c0c65 1px 1px 1px;
 }
@@ -132,19 +153,63 @@ main{
 
 .painel-tarefas{
   display: flex;
+  height: 400px;
   flex-direction: column-reverse;
-  justify-content: center;
+  justify-content: flex-end;
   margin-top:65px;
+  margin-bottom:50px;
   font-family: 'openSans-light';
   font-size: 0.8rem;
 }
 
 
+.tarefas-ativas, .tarefas-completas{
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  padding-right:20px;
+}
 
 .tarefas-completas{
-  padding:30px 30px;
-  background-color: #d2ffce;
+  opacity: 0;
+  transform: translateX(-5%);
+  transition: 0.3s;
 }
+
+.tarefas-ativas{
+  opacity: 0;
+  transform: translateX(-5%);
+  transition: 0.3s;
+}
+
+.mostrar-painel{
+  opacity: 1;
+  z-index: 8;
+  transform: translateX(0);
+  transition: 0.3s;
+}
+
+.mudar-painel{
+  position: relative;
+  font-family: 'openSans-medium';
+  background: linear-gradient(170deg, #A53636, #EF3838);
+  width: 190px;
+  padding:10px 0;
+  text-align: center;
+  cursor: pointer;
+  transform: scale(1);
+  transition: 0.2s;
+  box-shadow: 5px 5px 5px 0px #0000007c;
+}
+
+.mudar-painel:hover{
+  transform: scale(1.05);
+  transition: 0.2s;
+}
+
 
 .tarefas-ativas h2, .tarefas-completas h2{
   margin-bottom:40px;
@@ -155,12 +220,26 @@ main{
   align-items: center;
   justify-content: space-between;
   padding:20px 10px 20px 15px;
-  border-radius: 10px;
+  border-radius: 5px;
   margin-bottom: 20px;
-  background-color: #1F314A;
+  background-color: #29446B;
+  gap: 20px;
+  opacity: 1;
+  animation: animEntrance .3s ease-in;
 }
 
+.tarefas-completas .box-tarefa{
+  background-color: #29446B;
+  color:#1c2e47;
+}
 
+.tarefas-completas .texto-tarefa{
+  color:#a1a1a1;
+}
+
+.tarefas-completas .box-editar{
+  display: none;
+}
 
 .botoes-tarefa{
   display: flex;
@@ -268,15 +347,15 @@ main{
 .limpar{
   width: 100%;
   height: 60px;
-  background-color: #102C57;
+  background: linear-gradient(170deg, #A53636, #EF3838);
   border: none;
   outline: none;
   color:#ffffff;
   cursor: pointer;
   font-family: 'openSans-bold';
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   transition: 0.2s;
-  border-radius:  0 0 10px 10px;
+  box-shadow: 5px 5px 5px 0px #0000007c;
 }
 
 
@@ -336,18 +415,32 @@ main{
 
 @keyframes tarefaEdit {
   0%{
-    background-color: #ffcf67;
+    background-color: #29446B;
   }
   50%{
-    background-color: #ecaf2a;;
+    background-color: #041833;
   }
   100%{
-    background-color: #ffcf67;
+    background-color: #29446B;
   }
 }
 
+@keyframes animEntrance {
+  0%{
+    transform: translateX(-15%);
+    opacity: 0;
+  }
+  100%{
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 
-
-.tarefas-completas{
-  opacity: 0;
+@keyframes aparecerPainel {
+  0%{
+    transform: translateX(-5%);
+  }
+  100%{
+    transform: translateX(0);
+  }
 }

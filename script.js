@@ -5,6 +5,7 @@ const botaoAddTarefa = document.querySelector('.adicionar')
 const inputAddTarefa = document.querySelector('#addTarefa')
 const botaoLimpar = document.querySelector('.limpar')
 const caracterCount = document.querySelector('.caracter-count')
+const mudarPainelBotao = document.querySelector('.mudar-painel p')
 
 
 function criarTarefa(){
@@ -15,15 +16,18 @@ function criarTarefa(){
       caracterCount.classList.remove('caracter-ok')
   } else {
     let createTarefa = document.createElement('div')
+    let botaoEditar = document.createElement('div')
     let createTexto = document.createElement('input')
     let createExtras = document.createElement('div')
 
     createTarefa.classList.add("box-tarefa")
+    botaoEditar.classList.add("box-editar")
     createTexto.classList.add("texto-tarefa")
     createExtras.classList.add("botoes-tarefa")
 
     createTexto.disabled = true
 
+    createTarefa.appendChild(botaoEditar)
     createTarefa.appendChild(createTexto)
     createTarefa.appendChild(createExtras)
     tarefasAtivas.appendChild(createTarefa)
@@ -32,7 +36,7 @@ function criarTarefa(){
     
     createExtras.appendChild(completarTarefa(createTarefa))
     createExtras.appendChild(removerTarefa(createTarefa))
-    createExtras.appendChild(editarTarefa(createTarefa, createTexto))
+    botaoEditar.appendChild(editarTarefa(createTarefa, createTexto))
 
     inputAddTarefa.value = ''
     caracterCount.innerHTML = 0 + " / 20"
@@ -122,6 +126,19 @@ function keyboardHandler(event){
   } 
 }
 
+function mudarPainelHandler(){
+  if(tarefasAtivas.classList.contains("mostrar-painel")){
+    tarefasAtivas.classList.remove("mostrar-painel")
+    tarefasCompletas.classList.add("mostrar-painel")
+    mudarPainelBotao.innerHTML = "Tarefas ativas"
+  } else {
+    tarefasAtivas.classList.add("mostrar-painel")
+    tarefasCompletas.classList.remove("mostrar-painel")
+    mudarPainelBotao.innerHTML = "Tarefas completas"
+  }
+}
+
 botaoAddTarefa.addEventListener('click', criarTarefa)
 botaoLimpar.addEventListener('click', limparPainelTarefas)
 inputAddTarefa.addEventListener('keyup', keyboardHandler)
+mudarPainelBotao.addEventListener('click', mudarPainelHandler)
