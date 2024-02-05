@@ -71,7 +71,6 @@ function completarTarefa(tarefa){
 function removerTarefa(tarefa){
   let botaoRemover = document.createElement('div')
   botaoRemover.classList.add('botao-remover')
-
   botaoRemover.onclick = ()=>{
     if(tarefa.classList.contains('completada')){
       tarefasCompletas.removeChild(tarefa)
