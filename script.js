@@ -9,12 +9,13 @@ const mudarPainelBotao = document.querySelector('.mudar-painel p')
 const tituloPainelTarefas = document.querySelector('.lista-body h3')
 
 
+
 function criarTarefa(){
   if(inputAddTarefa.value === '' || inputAddTarefa.value.length > 20){
-      alert('Preencha o campo corretamente')
-      inputAddTarefa.value = ''
-      caracterCount.innerHTML = 0 + " / 20"
-      caracterCount.classList.remove('caracter-ok')
+    alert('Preencha o campo corretamente')
+    inputAddTarefa.value = ''
+    caracterCount.innerHTML = 0 + " / 20"
+    caracterCount.classList.remove('caracter-ok')
   } else {
     let createTarefa = document.createElement('div')
     let botaoEditar = document.createElement('div')
@@ -32,7 +33,7 @@ function criarTarefa(){
     createTarefa.appendChild(createTexto)
     createTarefa.appendChild(createExtras)
     tarefasAtivas.appendChild(createTarefa)
-    
+  
     createTexto.value = inputAddTarefa.value
     
     createExtras.appendChild(completarTarefa(createTarefa))
@@ -43,6 +44,8 @@ function criarTarefa(){
     caracterCount.innerHTML = 0 + " / 20"
   }
 }
+
+
 
 function completarTarefa(tarefa){
   let boxCompletar = document.createElement('div')
@@ -147,6 +150,10 @@ function mudarPainelHandler(){
     tarefasCompletas.classList.remove("displayHandle")
   }
 }
+
+
+
+
 
 botaoAddTarefa.addEventListener('click', criarTarefa)
 botaoLimpar.addEventListener('click', limparPainelTarefas)
