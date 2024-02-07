@@ -6,6 +6,7 @@ const inputAddTarefa = document.querySelector('#addTarefa')
 const botaoLimpar = document.querySelector('.limpar')
 const caracterCount = document.querySelector('.caracter-count')
 const mudarPainelBotao = document.querySelector('.mudar-painel p')
+const tituloPainelTarefas = document.querySelector('.lista-body h3')
 
 
 function criarTarefa(){
@@ -36,7 +37,7 @@ function criarTarefa(){
     
     createExtras.appendChild(completarTarefa(createTarefa))
     createExtras.appendChild(removerTarefa(createTarefa))
-    botaoEditar.appendChild(editarTarefa(createTarefa, createTexto))
+    createExtras.appendChild(editarTarefa(createTarefa, createTexto))
 
     inputAddTarefa.value = ''
     caracterCount.innerHTML = 0 + " / 20"
@@ -128,12 +129,22 @@ function keyboardHandler(event){
 function mudarPainelHandler(){
   if(tarefasAtivas.classList.contains("mostrar-painel")){
     tarefasAtivas.classList.remove("mostrar-painel")
-    tarefasCompletas.classList.add("mostrar-painel")
+    tarefasAtivas.classList.remove("displayHandle")
+
     mudarPainelBotao.innerHTML = "Tarefas ativas"
+    tituloPainelTarefas.innerHTML = "Tarefas completas"
+
+    tarefasCompletas.classList.add("mostrar-painel")
+    tarefasCompletas.classList.add("displayHandle")
   } else {
     tarefasAtivas.classList.add("mostrar-painel")
-    tarefasCompletas.classList.remove("mostrar-painel")
+    tarefasAtivas.classList.add("displayHandle")
+
     mudarPainelBotao.innerHTML = "Tarefas completas"
+    tituloPainelTarefas.innerHTML = "Tarefas para completar"
+
+    tarefasCompletas.classList.remove("mostrar-painel")
+    tarefasCompletas.classList.remove("displayHandle")
   }
 }
 
