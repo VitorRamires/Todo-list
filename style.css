@@ -468,6 +468,7 @@ main{
 
   .todo-info-input{
     border-radius: 0;
+    padding: 20px 20px 40px 20px;
   }
 
   .tarefas-de-hoje{
@@ -497,6 +498,7 @@ main{
   .lista-body h3 {
     width: 100%;
     font-size: 1.2rem;
+    padding: 10px 10px 10px 10px;
   }
 
 
@@ -513,5 +515,11 @@ main{
 
   .limpar{
     border-radius: 0;
+  }
+}
+
+@media screen and (max-width:400px) {
+  .tarefas-de-hoje{
+    font-size: 1.7rem;
   }
 }
