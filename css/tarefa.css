@@ -1,0 +1,139 @@
+.box-tarefa{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:20px 10px 20px 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  background-color: #e4e4e4;
+  gap: 20px;
+  opacity: 1;
+  animation: animEntrance .3s ease-in;
+}
+
+.anim-exit{
+  animation: animExit .3s ease-in-out;
+}
+
+.tarefas-completas .box-tarefa{
+  background-color: #1f314a2f;
+  color:#1c2e47;
+}
+
+.tarefas-completas .texto-tarefa{
+  color:#a1a1a1;
+}
+
+.tarefas-completas .box-editar{
+  display: none;
+}
+
+.botoes-tarefa{
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap:20px;
+}
+
+.texto-tarefa{
+  width: 100%;
+  height: 30px;
+  outline: none;
+  border:none;
+  background-color: transparent;
+  color:#0c0c0c;
+  font-size: 1rem;
+  font-family: "openSans-regular";
+}
+
+.botao-remover{
+  position: relative;
+  background-image: url(./icons/trash-fill.svg);
+  background-size: contain;
+  background-position: center;
+  padding:20px;
+  transition: 0.25s;
+  cursor: pointer;
+  border-radius: 10px;
+  
+}
+
+.botao-editar{
+  display: block;
+  position: relative;
+  background-image: url(./icons/pen-fill.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding:19px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.salvar-edicão{
+  background-image: url(./icons/pen.svg) !important;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.destacar-tarefa-modificada{
+  animation: tarefaEdit 2.5s ease-in infinite;
+}
+
+.destacar-tarefa-modificada .texto-tarefa{
+  color: #ffffff !important;
+}
+
+.box-completar{
+  position: relative;
+  width: 38px;
+  height: 38px;
+  transition: 0.25s;
+}
+
+.botao-completar{
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.personalizar-completar{
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  background-color: #c0c0c0;
+  z-index: 1;
+  border-radius: 5px;
+}
+
+
+.box-completar:hover, 
+.botao-completar:hover, 
+.botao-editar:hover, 
+.salvar-edicão:hover, 
+.botao-remover:hover{
+  transform: scale(1.1);
+  transition: 0.25s;
+}
+
+.completada .botoes-tarefa .box-completar .personalizar-completar{
+  background-color: rgb(18, 182, 0) !important;
+  background-image: url(./icons/check.svg);
+  background-position: center;
+}
+
+.completada .botoes-tarefa .botao-editar{
+  display: none;
+}
+

@@ -1,0 +1,90 @@
+@import './animaçoes.css';
+@import './Todo.css';
+@import './Todo-header.css';
+@import './paineis.css';
+@import './tarefa.css';
+
+
+@media screen and (max-width:480px){
+  .box-tarefa{
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+  }
+  .botoes-tarefa{
+    justify-content: flex-start;
+  }
+  .box-editar{
+    position: absolute;
+    bottom:15%;
+    right:5%;
+  }
+}
+
+@media screen and (max-width:700px) {
+  body{
+    padding-bottom: 0;
+  }
+
+  main{
+    margin:0 auto;
+    border-radius: 0;
+  }
+
+  .todo-info-input{
+    border-radius: 0;
+    padding: 20px 20px 40px 20px;
+  }
+
+  .tarefas-de-hoje{
+    margin-bottom: 30px;
+  }
+
+  .caracteres{
+    display: none;
+  }
+
+  .input-tarefa{
+    flex-direction: column;
+    margin:5px auto 15px auto;
+  }
+
+  .input-tarefa .adicionar{
+    position: absolute;
+    bottom:0;
+    transform: translateY(50%);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 0;
+    z-index: 10;
+  }
+
+  .lista-body h3 {
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 10px 10px 10px 10px;
+  }
+
+
+  .lista-body{
+    padding: 40px 20px 20px 20px;
+  }
+
+  .mudar-painel{
+    margin:15px auto;
+    width: 160px;
+    font-size: 0.9rem;
+    border-width: 9px;
+  }
+
+  .limpar{
+    border-radius: 0;
+  }
+}
+
+@media screen and (max-width:400px) {
+  .tarefas-de-hoje{
+    font-size: 1.7rem;
+  }
+}
