@@ -9,7 +9,6 @@ const mudarPainelBotao = document.querySelector('.mudar-painel p')
 const tituloPainelTarefas = document.querySelector('.lista-body h3')
 
 
-
 function criarTarefa(){
   if(inputAddTarefa.value === '' || inputAddTarefa.value.length > 20){
     alert('Preencha o campo corretamente')
@@ -42,6 +41,7 @@ function criarTarefa(){
 
     inputAddTarefa.value = ''
     caracterCount.innerHTML = 0 + " / 20"
+  
   }
 }
 
@@ -77,9 +77,13 @@ function removerTarefa(tarefa){
   botaoRemover.classList.add('botao-remover')
   botaoRemover.onclick = ()=>{
     if(tarefa.classList.contains('completada')){
-      tarefasCompletas.removeChild(tarefa)
+      tarefa.classList.add("anim-exit")
+      let removerTarefaCompleta = () => { tarefasCompletas.removeChild(tarefa) }
+      setTimeout(removerTarefaCompleta, 300)
     } else {
-      tarefasAtivas.removeChild(tarefa)
+      let removerTarefaAtiva = () => { tarefasAtivas.removeChild(tarefa) }
+      tarefa.classList.add("anim-exit")
+      setTimeout(removerTarefaAtiva, 300)
     }
   }
   return botaoRemover
@@ -112,9 +116,13 @@ function limparPainelTarefas(){
   const todasTarefas = document.querySelectorAll('.box-tarefa')
   todasTarefas.forEach(tarefa=>{
     if(tarefa.classList.contains('completada')){
-      tarefasCompletas.removeChild(tarefa)
+      tarefa.classList.add("anim-exit")
+      let removerTarefaCompleta = () => {tarefasCompletas.removeChild(tarefa)}
+      setTimeout(removerTarefaCompleta, 300)
     } else {
-      tarefasAtivas.removeChild(tarefa)
+      tarefa.classList.add("anim-exit")
+      let removerTarefaAtiva = () => {tarefasAtivas.removeChild(tarefa)}
+      setTimeout(removerTarefaAtiva, 300)
     }
   })
 }
