@@ -27,7 +27,7 @@ html {
 }
 
 body {
-  background: #ececec;
+  background: #f1f1f1;
   padding-bottom: 15px;
 }
 
@@ -37,7 +37,7 @@ main{
   max-width: 100%;
   margin: 10px auto;
   background: #ffffff;
-  box-shadow: 10px 10px 15px 0px #0000002c;
+  box-shadow: 15px 15px 5px 0px #0000002f;
   border-radius:7px;
 }
 
