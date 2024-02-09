@@ -49,7 +49,7 @@
 
 .botao-remover{
   position: relative;
-  background-image: url(./icons/trash-fill.svg);
+  background-image: url("../icons/trash-fill.svg");
   background-size: contain;
   background-position: center;
   padding:20px;
@@ -62,7 +62,7 @@
 .botao-editar{
   display: block;
   position: relative;
-  background-image: url(./icons/pen-fill.svg);
+  background-image: url("../icons/pen-fill.svg");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -72,7 +72,7 @@
 }
 
 .salvar-edicão{
-  background-image: url(./icons/pen.svg) !important;
+  background-image: url("../icons/pen.svg") !important;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -129,7 +129,7 @@
 
 .completada .botoes-tarefa .box-completar .personalizar-completar{
   background-color: rgb(18, 182, 0) !important;
-  background-image: url(./icons/check.svg);
+  background-image: url("../icons/check.svg");
   background-position: center;
 }
 

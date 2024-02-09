@@ -27,13 +27,13 @@ html {
 }
 
 body {
-  background: linear-gradient(45deg,#4c75c0,#56aeff, #56aeff);
+  background: #ececec;
   padding-bottom: 15px;
 }
 
 main{
   position: relative;
-  width: 900px;
+  width: 650px;
   max-width: 100%;
   margin: 10px auto;
   background: #ffffff;

@@ -45,8 +45,6 @@ function criarTarefa(){
   }
 }
 
-
-
 function completarTarefa(tarefa){
   let boxCompletar = document.createElement('div')
   let botaoCompletar = document.createElement('input')
@@ -158,9 +156,6 @@ function mudarPainelHandler(){
     tarefasCompletas.classList.remove("displayHandle")
   }
 }
-
-
-
 
 
 botaoAddTarefa.addEventListener('click', criarTarefa)
