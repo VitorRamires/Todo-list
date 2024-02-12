@@ -27,7 +27,7 @@ html {
 }
 
 body {
-  background: #f1f1f1;
+  background: linear-gradient(180deg, #29446B, #A53636);
   padding-bottom: 15px;
 }
 
@@ -36,7 +36,7 @@ main{
   width: 650px;
   max-width: 100%;
   margin: 10px auto;
-  background: #ffffff;
+  background: #335585;
   box-shadow: 15px 15px 5px 0px #0000002f;
   border-radius:7px;
 }
