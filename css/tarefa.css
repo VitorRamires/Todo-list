@@ -52,7 +52,7 @@
   background-image: url("../icons/trash-fill.svg");
   background-size: contain;
   background-position: center;
-  padding:20px;
+  padding:15px;
   transition: 0.25s;
   cursor: pointer;
   border-radius: 10px;
@@ -66,7 +66,7 @@
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  padding:19px;
+  padding:15px;
   transition: 0.25s;
   cursor: pointer;
 }
@@ -90,8 +90,8 @@
 
 .box-completar{
   position: relative;
-  width: 38px;
-  height: 38px;
+  width: 28px;
+  height: 28px;
   transition: 0.25s;
 }
 

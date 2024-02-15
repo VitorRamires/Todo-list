@@ -6,14 +6,14 @@ const inputAddTarefa = document.querySelector('#addTarefa')
 const botaoLimpar = document.querySelector('.limpar')
 const caracterCount = document.querySelector('.caracter-count')
 const mudarPainelBotao = document.querySelector('.mudar-painel p')
-const tituloPainelTarefas = document.querySelector('.lista-body h3')
+
 
 
 function criarTarefa(){
-  if(inputAddTarefa.value === '' || inputAddTarefa.value.length > 20){
+  if(inputAddTarefa.value === '' || inputAddTarefa.value.length > 30){
     alert('Preencha o campo corretamente')
     inputAddTarefa.value = ''
-    caracterCount.innerHTML = 0 + " / 20"
+    caracterCount.innerHTML = 0 + " / 30"
     caracterCount.classList.remove('caracter-ok')
   } else {
     let createTarefa = document.createElement('div')
@@ -40,7 +40,7 @@ function criarTarefa(){
     createExtras.appendChild(editarTarefa(createTarefa, createTexto))
 
     inputAddTarefa.value = ''
-    caracterCount.innerHTML = 0 + " / 20"
+    caracterCount.innerHTML = 0 + " / 30"
   
   }
 }
@@ -91,7 +91,7 @@ function editarTarefa(createTarefa, createTexto){
   let botaoEditar = document.createElement('div')
   botaoEditar.classList.add('botao-editar')
   botaoEditar.onclick = ()=>{
-    if(createTexto.value === '' || createTexto.value.length > 20){
+    if(createTexto.value === '' || createTexto.value.length > 30){
       alert('Preencha o campo corretamente')
     } else {
       if(createTexto.disabled === false){
@@ -126,12 +126,12 @@ function limparPainelTarefas(){
 }
 
 function keyboardHandler(event){
-  caracterCount.innerHTML = inputAddTarefa.value.length + " / 20"
-  inputAddTarefa.value.length > 20 ? caracterCount.classList.add('caracter-ok') : caracterCount.classList.remove('caracter-ok')
+  caracterCount.innerHTML = inputAddTarefa.value.length + " / 30"
+  inputAddTarefa.value.length > 30 ? caracterCount.classList.add('caracter-ok') : caracterCount.classList.remove('caracter-ok')
   if(event.key === "Enter"){
     criarTarefa()
     inputAddTarefa.value = ''
-    caracterCount.innerHTML = 0 + " / 20"
+    caracterCount.innerHTML = 0 + " / 30"
   } 
 }
 
@@ -141,7 +141,6 @@ function mudarPainelHandler(){
     tarefasAtivas.classList.remove("displayHandle")
 
     mudarPainelBotao.innerHTML = "Tarefas ativas"
-    tituloPainelTarefas.innerHTML = "Tarefas completas"
 
     tarefasCompletas.classList.add("mostrar-painel")
     tarefasCompletas.classList.add("displayHandle")
@@ -150,8 +149,7 @@ function mudarPainelHandler(){
     tarefasAtivas.classList.add("displayHandle")
 
     mudarPainelBotao.innerHTML = "Tarefas completas"
-    tituloPainelTarefas.innerHTML = "Tarefas para completar"
-
+    
     tarefasCompletas.classList.remove("mostrar-painel")
     tarefasCompletas.classList.remove("displayHandle")
   }

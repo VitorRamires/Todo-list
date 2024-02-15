@@ -27,13 +27,13 @@ html {
 }
 
 body {
-  background: linear-gradient(180deg, #29446B, #A53636);
+  background: linear-gradient(360deg, #29446B, #A53636);
   padding-bottom: 15px;
 }
 
 main{
   position: relative;
-  width: 650px;
+  width: 550px;
   max-width: 100%;
   margin: 10px auto;
   background: #335585;

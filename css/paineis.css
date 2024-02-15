@@ -33,7 +33,7 @@
   margin-bottom:20px;
   font-family: 'openSans-light';
   font-size: 0.8rem;
-  height: 270px;
+  height: 400px;
 }
 
 
@@ -85,7 +85,6 @@
   box-shadow: 5px 5px 5px 0px #0000003b;
   margin: 0 15px 35px 0;
   transition: 0.2s;
-  border-left:5px solid #3288ff;
   border-radius:4px;
 }
 
@@ -110,7 +109,7 @@
 .limpar{
   width: 100%;
   height: 80px;
-  background-color: #535353;
+background: linear-gradient(90deg, #A53636, #EF3838);
   border: none;
   outline: none;
   color:#ffffff;

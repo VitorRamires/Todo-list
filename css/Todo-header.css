@@ -40,8 +40,8 @@
 .caracteres{
   position: absolute;
   bottom:7%;
-  left:5.5%;
-  width: 100%;
+  left:7.5%;
+  width: fit-content;
   display: flex;
   align-items: center;
   justify-content: start;
