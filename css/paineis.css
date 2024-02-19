@@ -3,7 +3,6 @@
   position: relative;
   width: 100%;
   z-index: 2;
-  border-radius: 15px;
   padding:0 20px 20px 20px;
   overflow-x: hidden;
 }
@@ -33,7 +32,7 @@
   margin-bottom:20px;
   font-family: 'openSans-light';
   font-size: 0.8rem;
-  height: 400px;
+  height: 440px;
 }
 
 
@@ -68,6 +67,7 @@
   z-index: 8;
   transform: translateX(0);
   transition: 0.3s;
+  border-radius: 3px;
 }
 
 .filtrar{
@@ -76,14 +76,14 @@
 
 .mudar-painel{
   position: relative;
-  background:linear-gradient(90deg, #A53636, #EF3838);
+  background:linear-gradient(180deg, #A53636, #EF3838);
   width: 190px;
   padding:10px 0;
   text-align: center;
   cursor: pointer;
   transform: scale(1);
   box-shadow: 5px 5px 5px 0px #0000003b;
-  margin: 0 15px 35px 0;
+  margin: 25px 15px 35px 0;
   transition: 0.2s;
   border-radius:4px;
 }
@@ -109,7 +109,7 @@
 .limpar{
   width: 100%;
   height: 80px;
-background: linear-gradient(90deg, #A53636, #EF3838);
+  background: linear-gradient(180deg, #A53636, #EF3838);
   border: none;
   outline: none;
   color:#ffffff;
@@ -117,7 +117,6 @@ background: linear-gradient(90deg, #A53636, #EF3838);
   font-family: 'openSans-bold';
   font-size: 1.6rem;
   transition: 0.2s;
-  border-radius: 0 0 7px 7px;
 }
 
 
