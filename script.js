@@ -1,4 +1,5 @@
 import CreateElement from "./createElement.js"
+import ChangePanel from "./changePanel.js"
 
 const tarefasAtivas = document.querySelector('.tarefas-ativas')
 const tarefasCompletas = document.querySelector('.tarefas-completas')
@@ -138,27 +139,13 @@ function keyboardHandler(event){
 }
 
 function mudarPainelHandler(){
-  if(tarefasAtivas.classList.contains("mostrar-painel")){
-    tarefasAtivas.classList.remove("mostrar-painel")
-    tarefasAtivas.classList.remove("displayHandle")
-
-    mudarPainelBotao.innerHTML = "Tarefas ativas"
-
-    tarefasCompletas.classList.add("mostrar-painel")
-    tarefasCompletas.classList.add("displayHandle")
-  } else {
-    tarefasAtivas.classList.add("mostrar-painel")
-    tarefasAtivas.classList.add("displayHandle")
-
-    mudarPainelBotao.innerHTML = "Tarefas completas"
-    
-    tarefasCompletas.classList.remove("mostrar-painel")
-    tarefasCompletas.classList.remove("displayHandle")
-  }
+  let changePanelClass = new ChangePanel("mostrar-painel", "displayHandle")
+  changePanelClass.handleChangePanel(tarefasAtivas, tarefasCompletas)
 }
-
 
 botaoAddTarefa.addEventListener('click', criarTarefa)
 botaoLimpar.addEventListener('click', limparPainelTarefas)
 inputAddTarefa.addEventListener('keyup', keyboardHandler)
 mudarPainelBotao.addEventListener('click', mudarPainelHandler)
+
+export {tarefasAtivas, tarefasCompletas}
