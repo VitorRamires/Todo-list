@@ -1,4 +1,5 @@
-const painelTarefas = document.querySelector('.painel-tarefas')
+import CreateElement from "./createElement.js"
+
 const tarefasAtivas = document.querySelector('.tarefas-ativas')
 const tarefasCompletas = document.querySelector('.tarefas-completas')
 const botaoAddTarefa = document.querySelector('.adicionar')
@@ -7,37 +8,41 @@ const botaoLimpar = document.querySelector('.limpar')
 const caracterCount = document.querySelector('.caracter-count')
 const mudarPainelBotao = document.querySelector('.mudar-painel p')
 
-
-
 function criarTarefa(){
+
+  let elements = new CreateElement('box-tarefa',  'box-editar', 'botoes-tarefa')
+  elements.createDiv()
+
   if(inputAddTarefa.value === '' || inputAddTarefa.value.length > 30){
     alert('Preencha o campo corretamente')
     inputAddTarefa.value = ''
     caracterCount.innerHTML = 0 + " / 30"
     caracterCount.classList.remove('caracter-ok')
   } else {
-    let createTarefa = document.createElement('div')
-    let botaoEditar = document.createElement('div')
+
     let createTexto = document.createElement('input')
-    let createExtras = document.createElement('div')
+    let newElements = elements.createDiv()
+    
+    let createNewTask = newElements[0]
+    let newEditButton = newElements[1]
+    let newBtnExtras = newElements[2]
 
-    createTarefa.classList.add("box-tarefa")
-    botaoEditar.classList.add("box-editar")
     createTexto.classList.add("texto-tarefa")
-    createExtras.classList.add("botoes-tarefa")
-
     createTexto.disabled = true
 
-    createTarefa.appendChild(botaoEditar)
-    createTarefa.appendChild(createTexto)
-    createTarefa.appendChild(createExtras)
-    tarefasAtivas.appendChild(createTarefa)
-  
+    /* Lista as divs que serão anexas na div pai, e as anexa*/
+    let appendItens = [createTexto, newEditButton, newBtnExtras]
+    appendItens.forEach(itens => {
+      createNewTask.appendChild(itens)
+    })
+    tarefasAtivas.appendChild(createNewTask)
     createTexto.value = inputAddTarefa.value
-    
-    createExtras.appendChild(completarTarefa(createTarefa))
-    createExtras.appendChild(removerTarefa(createTarefa))
-    createExtras.appendChild(editarTarefa(createTarefa, createTexto))
+
+    /* lista as ações e anexa na div para ações da tarefa*/
+    let allMethods = [completarTarefa(createNewTask), removerTarefa(createNewTask), editarTarefa(createNewTask, createTexto)]
+    allMethods.forEach(method => {{
+      newBtnExtras.appendChild(method)
+    }})
 
     inputAddTarefa.value = ''
     caracterCount.innerHTML = 0 + " / 30"
