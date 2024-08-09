@@ -1,6 +1,6 @@
 export default class CreateElement {
-    constructor(div1, div2, div3){
-        this.allDivs = [div1, div2, div3]
+    constructor(...element){
+        this.allDivs = [...element]
     }
 
     createDiv(){

@@ -9,19 +9,16 @@ const caracterCount = document.querySelector('.caracter-count')
 const mudarPainelBotao = document.querySelector('.mudar-painel p')
 
 function criarTarefa(){
-
-  let elements = new CreateElement('box-tarefa',  'box-editar', 'botoes-tarefa')
-  elements.createDiv()
-
   if(inputAddTarefa.value === '' || inputAddTarefa.value.length > 30){
     alert('Preencha o campo corretamente')
     inputAddTarefa.value = ''
     caracterCount.innerHTML = 0 + " / 30"
     caracterCount.classList.remove('caracter-ok')
   } else {
-
-    let createTexto = document.createElement('input')
+    
+    let elements = new CreateElement('box-tarefa',  'box-editar', 'botoes-tarefa')
     let newElements = elements.createDiv()
+    let createTexto = document.createElement('input')
     
     let createNewTask = newElements[0]
     let newEditButton = newElements[1]
@@ -30,7 +27,6 @@ function criarTarefa(){
     createTexto.classList.add("texto-tarefa")
     createTexto.disabled = true
 
-    /* Lista as divs que serão anexas na div pai, e as anexa*/
     let appendItens = [createTexto, newEditButton, newBtnExtras]
     appendItens.forEach(itens => {
       createNewTask.appendChild(itens)
@@ -38,7 +34,6 @@ function criarTarefa(){
     tarefasAtivas.appendChild(createNewTask)
     createTexto.value = inputAddTarefa.value
 
-    /* lista as ações e anexa na div para ações da tarefa*/
     let allMethods = [completarTarefa(createNewTask), removerTarefa(createNewTask), editarTarefa(createNewTask, createTexto)]
     allMethods.forEach(method => {{
       newBtnExtras.appendChild(method)
@@ -46,22 +41,24 @@ function criarTarefa(){
 
     inputAddTarefa.value = ''
     caracterCount.innerHTML = 0 + " / 30"
-  
   }
 }
 
 function completarTarefa(tarefa){
-  let boxCompletar = document.createElement('div')
+  let elements = new CreateElement('box-completar',  'personalizar-completar')
+  let newElements = elements.createDiv()
+
+  let boxCompletar = newElements[0]
+  let newPersonalizateBtn = newElements[1]
   let botaoCompletar = document.createElement('input')
-  let botaoCompletarPersonalizado = document.createElement('div')
   
   botaoCompletar.setAttribute('type', 'checkbox')
-  boxCompletar.classList.add('box-completar')
   botaoCompletar.classList.add('botao-completar')
-  botaoCompletarPersonalizado.classList.add('personalizar-completar')
-  
-  boxCompletar.appendChild(botaoCompletar)
-  boxCompletar.appendChild(botaoCompletarPersonalizado)
+
+  let completeActions = [botaoCompletar, newPersonalizateBtn]
+  completeActions.forEach(item=>{
+    boxCompletar.appendChild(item)
+  })
 
   botaoCompletar.onclick = ()=>{
     if(botaoCompletar.checked === false){
@@ -76,25 +73,25 @@ function completarTarefa(tarefa){
 }
 
 function removerTarefa(tarefa){
-  let botaoRemover = document.createElement('div')
-  botaoRemover.classList.add('botao-remover')
-  botaoRemover.onclick = ()=>{
+  let elements = new CreateElement('botao-remover')
+  let newElements = elements.createDiv()
+  let botaoRemover = newElements[0]
+  newElements[0].onclick = ()=>{
     if(tarefa.classList.contains('completada')){
       tarefa.classList.add("anim-exit")
-      let removerTarefaCompleta = () => { tarefasCompletas.removeChild(tarefa) }
-      setTimeout(removerTarefaCompleta, 300)
+      setTimeout(()=>{ tarefasCompletas.removeChild(tarefa) }, 300)
     } else {
-      let removerTarefaAtiva = () => { tarefasAtivas.removeChild(tarefa) }
       tarefa.classList.add("anim-exit")
-      setTimeout(removerTarefaAtiva, 300)
+      setTimeout(()=> { tarefasAtivas.removeChild(tarefa) }, 300)
     }
   }
   return botaoRemover
 }
 
 function editarTarefa(createTarefa, createTexto){
-  let botaoEditar = document.createElement('div')
-  botaoEditar.classList.add('botao-editar')
+  let elements = new CreateElement('botao-editar')
+  let newElements = elements.createDiv()
+  let botaoEditar = newElements[0]
   botaoEditar.onclick = ()=>{
     if(createTexto.value === '' || createTexto.value.length > 30){
       alert('Preencha o campo corretamente')
